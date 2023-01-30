@@ -1,14 +1,6 @@
-
 <?php
-	$id = isset($_GET['id']) ? $_GET['id'] : '';
-	if($id) {
-		$sql = "SELECT * FROM loaihang WHERE ma_loai = $id";
-		$data = pdo_query_one($sql);
-	}
-	extract($data);
- ?>
-
-
+	extract($item);
+?>
 
 <section class="main">
 	<form action="index.php?target=suaitem" method="post">

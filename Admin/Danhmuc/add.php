@@ -14,4 +14,3 @@
 		<?= isset($thongbao) ? $thongbao : '' ?>
 	</form>
 </section>
-	
