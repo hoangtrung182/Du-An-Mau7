@@ -50,9 +50,15 @@ html {
 
 .footer {
 	margin-top: 30px;
-	background-color: #ddd;
 	color: #000;
 	height: 40px;
+	background: linear-gradient(to bottom right, #b1b1e1, pink);
+	color: #fff;
+	text-align: center;
+	display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {

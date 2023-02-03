@@ -32,6 +32,7 @@
 		}
 	?>
 </table>
+<?php $thongbao = isset($thongbao) ? $thongbao : ''  ?>
 <p><?= $thongbao ?></p>
 <button  class="input_submit btn">
 	<a href="index.php?target=addCate">ADD NEW</a>

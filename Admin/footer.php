@@ -1,4 +1,6 @@
-	<footer class="footer">Team 7 - Represent</footer>
+	<footer class="footer">
+		<p>Hoang Trung Present</p>
+	</footer>
 	</div>
 </body>
 </html>
