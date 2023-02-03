@@ -8,10 +8,10 @@
 	</tr>
 	
 	<?php
-		foreach($listItem as $loaihang) {
+		foreach($listCates as $loaihang) {
 			extract($loaihang);
-			$editItem = "index.php?target=edititem&id=".$ma_loai;
-			$deleteItem = "index.php?target=deleteitem&id=".$ma_loai;
+			$editItem = "index.php?target=editCate&id=".$ma_loai;
+			$deleteItem = "index.php?target=deleteCate&id=".$ma_loai;
 			?>
 			<tr class="row1">
 				<td><input type="checkbox" name=""></td>
@@ -28,6 +28,11 @@
 					</a>
 				</td>
 			</tr>
-		<?php }
+		<?php
+		}
 	?>
-</table>		
+</table>
+<p><?= $thongbao ?></p>
+<button  class="input_submit btn">
+	<a href="index.php?target=addCate">ADD NEW</a>
+</button>

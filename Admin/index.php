@@ -2,50 +2,107 @@
 	include 'header.php';
 	include './model/pdo.php';
 	include './model/danhmuc.php';
+	include './model/hanghoa.php';
 	
 	if(isset($_GET['target'])) {
 		$variable = $_GET['target'];
 		switch ($variable) {
-			case 'adddm':
-				if(isset($_POST['addNewItem']) && $_POST['addNewItem']) {
+			case 'addCate':
+				if(isset($_POST['addNewCate']) && $_POST['addNewCate']) {
 					$ten_loai = $_POST['tenloai'];
-					insert($ten_loai);
-					$thongbao = "Thêm mới thành công!";
+					insert_cate($ten_loai);
+					$thongbao = "Thêm mới danh mục thành công!";
 				}
 				include './Danhmuc/add.php';
 				break;
-			case 'listitem' :
-				$listItem = select();
+			case 'listCate' :
+				$listCates = select_cate();
 				include './Danhmuc/list.php';
 				break;
-			case 'deleteitem' : 
+			case 'deleteCate' : 
 				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
-					delete($_GET['id']);
+					delete_cate($_GET['id']);
 				}
 
-				$sql = "SELECT * FROM loaihang order by ten_loai";
-				$listItem = pdo_query($sql);
+				$listCates = select_cate();
 				include './Danhmuc/list.php';
 				break;
-			case 'edititem': 
-				if(isset($_GET['id']) && ($_GET['id']>0)) {
-					$item = loadOne($_GET['id']);
+			case 'editCate': 
+				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+					$item = loadOne_cate($_GET['id']);
 				}
+				$item = $item;
 				include './Danhmuc/update.php';
-				// include './Danhmuc/list.php';
 				break;
-			case 'suaitem': 
+			case 'editedCate': 
+				if(isset($_POST['updateCate']) && $_POST['updateCate']) {
+					$id = $_POST['id'];
+					$ten_loai = $_POST['tenloai'];
+					update_cate($id, $ten_loai);
+					$thongbao = "Cập nhật danh mục thành công!";
+				}
+				$listCates = select_cate();
+				include './Danhmuc/list.php';
+				break;
+			case 'addItems':
+				if(isset($_POST['addNewItem']) && $_POST['addNewItem']) {
+					$ten_loai = $_POST['nameitem'];
+					$gia = $_POST['priceitem'];
+					$discount = $_POST['discountitem'];
+					$mota = $_POST['descitem'];
+					$view = $_POST['views'];
+					$date = '1-1-2010';
+					$ma_loai = $_POST['maloai'];
+
+					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
+					$save_url = '';
+					if($anh_dai_dien['size'] > 0 && $anh_dai_dien['size'] < 500000) {
+						$photo_folder = 'Image/';
+						$photo_file = uniqid() . $anh_dai_dien['name'];
+
+						$file_se_luu = $anh_dai_dien['tmp_name'];
+						$url = $photo_folder . $photo_file;
+
+						if(move_uploaded_file($file_se_luu, $url)) {
+							$save_url = $url;
+							}
+					}
+
+					insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai); 
+					$thongbao = "Thêm mới sản phẩm  thành công !";	
+				}
+
+				$listCates = select_cate();
+				include './Product/add.php';
+				break;
+			case 'listItems' :
+				$listItems = select_items();
+				include './Product/list.php';
+				break;
+			case 'deleteItem' : 
+				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+					delete_item($_GET['id']);
+				}
+
+				$listItems = select_items();
+				include './Product/list.php';
+				break;
+			case 'editItem': 
+				if(isset($_GET['id']) && ($_GET['id']>0)) {
+					$item = loadOne_item($_GET['id']);
+				}
+				include './Product/update.php';
+				// include './Product/list.php';
+				break;
+			case 'editedItem': 
 				if(isset($_POST['updateitem']) && $_POST['updateitem']) {
 					$id = $_POST['id'];
 					$ten_loai = $_POST['tenloai'];
-					update($id, $ten_loai);
+					update_item($id, $ten_loai);
 					$thongbao = "Cập nhật thành công!";
 				}
-				$listItem = select();
-				include './Danhmuc/list.php';
-				break;
-			case 'addhh':
-				include './Product/add.php';
+				$listItem = select_item();
+				include './Product/list.php';
 				break;
 			default:
 				include 'body.php';
