@@ -1,0 +1,41 @@
+.main {
+    max-width: 80%;
+    margin: auto;
+    background-color: rgb(174, 149, 149);
+    padding-left: 80px;
+}
+
+.main h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    font-variant: small-caps;
+}
+
+.input_second {
+    width: 80%;
+    border: none;
+    background-color: rgb(174, 149, 149);
+    border-bottom: 1px solid black;
+}
+
+
+.text_input {
+    padding-bottom: 10px;
+
+}
+
+button {
+    height: 30px;
+    width: 90px;
+}
+
+.option_dm {
+    width: 50px;
+    padding: 10px;
+}
+
+select {
+    width: 60px;
+    padding: 10px;
+}

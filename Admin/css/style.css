@@ -24,12 +24,13 @@ html {
 
 .navbar-menu {
 	display: flex;
-	justify-content: space-around ;
+	justify-content: space-around;
 	align-items: center;
 	list-style: none;
 	padding: 0;
 }
-.navbar-menu li a{
+
+.navbar-menu li a {
 	text-align: center;
 	display: block;
 	text-decoration: none;
@@ -56,9 +57,9 @@ html {
 	color: #fff;
 	text-align: center;
 	display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .btn {
@@ -66,41 +67,44 @@ html {
 	width: 65px;
 	margin: 10px 0;
 }
+
 table {
 	border: none;
 }
 
 
 .row {
-    text-align: center;
-    color: #000;
-    background-color: #ddd;
+	text-align: center;
+	color: #000;
+	background-color: #ddd;
 }
 
 
 .row1 {
-    color: #000;
-    font-size: 20px;
-    text-align: center;
+	color: #000;
+	font-size: 20px;
+	text-align: center;
 
 }
+
 /*th:nth-child(1) {
 	width: 30px;
 }
 */
 .row .th1 {
-    width: 50px;
+	width: 50px;
 }
 
 .row .th2 {
-    width: 200px;
+	width: 200px;
 }
 
 .row .th3 {
-    width: 530px;
+	width: 530px;
 }
+
 .row .th4 {
-    width: 100px;
+	width: 100px;
 }
 
 img {

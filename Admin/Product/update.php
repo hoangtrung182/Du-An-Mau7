@@ -35,7 +35,7 @@
 		</div>
 		<p>Lượt xem</p>
 		<input type="number" name="views" value="<?= $so_luot_xem ?>"  class="input_second">
-
+		
 		<div class="button">
 			<input type="hidden" name="id" value="<?= $ma_hanghoa ?>"> 
 			<input type="submit" value="Update" name="updateitem" class="input_submit btn">
