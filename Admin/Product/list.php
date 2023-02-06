@@ -11,21 +11,23 @@
 <?php 
 	$thongbao = isset($thongbao) ? $thongbao : '';
 	$thongbao_xoa = isset($thongbao_delete) ? $thongbao_delete : '';
+	$thongbao_sua = isset($thongbao_update) ? $thongbao_update : '';
 ?>
 <p class=""><?= $thongbao ?></p>
 <p class=""><?= $thongbao_xoa ?></p>
+<p class=""><?= $thongbao_sua ?></p>
 <table border="1" cellspacing="0">
 	<tr class="row">
 		<th class="type"></th>
-		<th class="type">ID</th>
+		<th class="type">id</th>
 		<th class="type">Name</th>
 		<th class="type">Price</th>
 		<th class="type">Discount</th>
 		<th class="type">Image</th>
 		<th class="type">Date</th>
-		<th class="type">Mô tả</th>
-		<th class="type">Lượt xem</th>
-		<th class="type">ID Category</th>
+		<th class="type">Description</th>
+		<th class="type">Views</th>
+		<th class="type">Mã loại</th>
 		<th class="type"></th>
 		<th class="type"></th>
 	</tr>
@@ -58,13 +60,11 @@
 					</a>
 				</td>
 			</tr>
-		<?php 
-	   }
-	?>
+		<?php    }     ?>
 </table>
 </table>
-<button  class="input_submit btn">
-	<a href="index.php?target=addmoveItems">ADD NEW</a>
-</button>		
+	<button  class="input_submit btn">
+		<a href="index.php?target=addmoveItems">ADD NEW</a>
+	</button>		
 </body>
 </html>

@@ -1,5 +1,4 @@
-<?php $thongbao = isset($thongbao) ? $thongbao : ''  ?>
-<p><?= $thongbao ?></p>
+
 <section class="main">
 	<h2>Form thêm mới danh mục</h2>
 	<form action="index.php?target=addCate" method="post">

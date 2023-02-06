@@ -13,7 +13,6 @@
 		<th class="type"></th>
 		<th class="type"></th>
 	</tr>
-	
 	<?php
 		foreach($listCates as $loaihang) {
 			extract($loaihang);
@@ -35,9 +34,7 @@
 					</a>
 				</td>
 			</tr>
-		<?php
-		}
-	?>
+		<?php  }  ?>
 </table>
 <button  class="input_submit btn">
 	<a href="index.php?target=addmoveCate">ADD NEW</a>
