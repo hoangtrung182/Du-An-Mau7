@@ -7,13 +7,17 @@
 	if(isset($_GET['target'])) {
 		$variable = $_GET['target'];
 		switch ($variable) {
+			case 'addmoveCate': 
+				include './Danhmuc/add.php';
+				break;
 			case 'addCate':
 				if(isset($_POST['addNewCate']) && $_POST['addNewCate']) {
 					$ten_loai = $_POST['tenloai'];
 					insert_cate($ten_loai);
 					$thongbao = "Thêm mới danh mục thành công!";
 				}
-				include './Danhmuc/add.php';
+				$listCates = select_cate();
+				include './Danhmuc/list.php';
 				break;
 			case 'listCate' :
 				$listCates = select_cate();
@@ -22,6 +26,7 @@
 			case 'deleteCate' : 
 				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
 					delete_cate($_GET['id']);
+					$thongbao_xoa = "Xóa thành công !!";
 				}
 
 				$listCates = select_cate();
@@ -44,6 +49,10 @@
 				$listCates = select_cate();
 				include './Danhmuc/list.php';
 				break;
+			case 'addmoveItems': 
+				$listCates = select_cate();
+				include './Product/add.php';
+				break;
 			case 'addItems':
 				if(isset($_POST['addNewItem']) && $_POST['addNewItem']) {
 					$ten_loai = $_POST['nameitem'];
@@ -51,7 +60,7 @@
 					$discount = $_POST['discountitem'];
 					$mota = $_POST['descitem'];
 					$view = $_POST['views'];
-					$date = '1-1-2010';
+					$date = $_POST['date'];
 					$ma_loai = $_POST['maloai'];
 
 					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
@@ -68,12 +77,12 @@
 						}
 					}
 
-					insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai); 
+					insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai,$date);
 					$thongbao = "Thêm mới sản phẩm  thành công !";	
 				}
 
-				$listCates = select_cate();
-				include './Product/add.php';
+				$listItems = select_items();
+				include './Product/list.php';
 				break;
 			case 'listItems' :
 				$listItems = select_items();
@@ -82,6 +91,7 @@
 			case 'deleteItem' : 
 				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
 					delete_item($_GET['id']);
+					$thongbao_delete = "Xóa thành công !!";
 				}
 
 				$listItems = select_items();
@@ -103,7 +113,7 @@
 					$discount = $_POST['discountitem'];
 					$mota = $_POST['descitem'];
 					$view = $_POST['views'];
-					$date = '1-1-2010';
+					$date = $_POST['date'];
 					$ma_loai = $_POST['maloai'];
 
 					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
@@ -119,7 +129,7 @@
 							$save_url = $url;
 						}
 					}
-					update_item($id, $ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai);
+					update_item($id, $ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai);
 					$thongbao = "Cập nhật sp thành công!";
 				}
 				$listItems = select_items();

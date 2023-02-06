@@ -1,10 +1,17 @@
+<?php 
+	$thongbao = isset($thongbao) ? $thongbao : '';
+	$thongbao_delete = isset($thongbao_xoa) ? $thongbao_xoa : '';
+?>
+<p class=""><?= $thongbao ?></p>
+<p class=""><?= $thongbao_delete ?></p>
+
 <table border="1" cellspacing="0">
 	<tr class="row">
-		<th class="th1"></th>
-		<th class="th2">Ma Loai</th>
-		<th class="th3">Ten Loai</th>
-		<th class="th4"></th>
-		<th class="th4"></th>
+		<th class="type"></th>
+		<th class="type">Mã loại</th>
+		<th class="type">Tên loại</th>
+		<th class="type"></th>
+		<th class="type"></th>
 	</tr>
 	
 	<?php
@@ -19,12 +26,12 @@
 				<td><?= $ten_loai ?></td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit">
+						<input type="button" value="Edit"  class="btn_edit">
 					</a>
 				</td>
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete">
+						<input type="button" value="Delete" class="btn_delete">
 					</a>
 				</td>
 			</tr>
@@ -32,8 +39,6 @@
 		}
 	?>
 </table>
-<?php $thongbao = isset($thongbao) ? $thongbao : ''  ?>
-<p><?= $thongbao ?></p>
 <button  class="input_submit btn">
-	<a href="index.php?target=addCate">ADD NEW</a>
+	<a href="index.php?target=addmoveCate">ADD NEW</a>
 </button>

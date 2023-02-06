@@ -1,9 +1,10 @@
 
 <section class="main">
-	<?php extract($item); ?>		//PHP
+	<h2>Form chỉnh sửa danh mục</h2>
+	<?php extract($item); ?>		
 	<form action="index.php?target=editedCate" method="post">
 		<p>Mã loại</p>
-		<input type="text" name="maloai" disabled="" class="input_first">
+		<input type="text" name="maloai" disabled="" class="input_second" placeholder="Không được thay đổi mã loại">
 		<p>Tên Loại</p>
 		<input type="text" name="tenloai"
 			 placeholder="Nhập tên loại hàng..." 

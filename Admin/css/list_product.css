@@ -1,0 +1,10 @@
+.type {
+    padding: 0px 10px;
+    background-color: rgb(174, 149, 149);
+    /*background-color: #fff;*/
+}
+
+table {
+    border: 1px solid rgb(174, 149, 149);
+
+}
