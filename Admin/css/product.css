@@ -35,7 +35,26 @@ button {
     padding: 10px;
 }
 
-select {
-    width: 60px;
-    padding: 10px;
+.select_op {
+    width: 80%;
+    border: none;
+    height: 30px;
+}
+
+.btn {
+    width: 90px;
+    border-radius: 5px;
+}
+
+.btn_delete {
+    background-color: red;
+    color: white;
+    /* border: none; */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn_edit {
+    padding: 5px 15px;
+    border-radius: 5px;
 }

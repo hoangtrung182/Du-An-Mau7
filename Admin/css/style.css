@@ -38,14 +38,14 @@ html {
 	color: #fff;
 }
 
-.input_first {
-	width: 70%;
-	height: 30px;
-}
 
 .input_second {
-	width: 70%;
+
 	height: 30px;
+	width: 80%;
+	border: none;
+	background-color: rgb(174, 149, 149);
+	border-bottom: 1px solid black;
 }
 
 
@@ -64,12 +64,14 @@ html {
 
 .btn {
 	height: 40px;
-	width: 65px;
+	width: 90px;
 	margin: 10px 0;
+	border-radius: 5px;
 }
 
 table {
-	border: none;
+	border: 1px solid rgb(174, 149, 149);
+	width: 100%;
 }
 
 
@@ -91,24 +93,45 @@ table {
 	width: 30px;
 }
 */
-.row .th1 {
-	width: 50px;
-}
-
-.row .th2 {
-	width: 200px;
-}
-
-.row .th3 {
-	width: 530px;
-}
-
-.row .th4 {
-	width: 100px;
-}
-
 img {
 	width: 200px;
 	height: 100px;
 	max-width: 100%;
+}
+
+.main {
+	max-width: 80%;
+	margin: auto;
+	background-color: rgb(174, 149, 149);
+	padding-left: 80px;
+}
+
+.main h2 {
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+	font-variant: small-caps;
+}
+
+.type {
+	padding: 10px 10px;
+	background-color: rgb(174, 149, 149);
+}
+
+.input_submit a {
+	text-decoration: none;
+	color: black;
+}
+
+.btn_delete {
+	background-color: red;
+	color: white;
+	/* border: none; */
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.btn_edit {
+	padding: 5px 15px;
+	border-radius: 5px;
 }

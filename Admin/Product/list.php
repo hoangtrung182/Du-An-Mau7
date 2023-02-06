@@ -1,16 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/list_product.css">
+</head>
+<body>
 <table border="1" cellspacing="0">
 	<tr class="row">
-		<th class=""></th>
-		<th class="">ID</th>
-		<th class="">Name</th>
-		<th class="">Price</th>
-		<th class="">Discount</th>
-		<th class="">Image</th>
-		<th class="">Date</th>
-		<th class="">Mô tả</th>
-		<th class="">Special</th>
-		<th class="">Lượt xem</th>
-		<th class="">ID Category</th>
+		<th class="type"></th>
+		<th class="type">ID</th>
+		<th class="type">Name</th>
+		<th class="type">Price</th>
+		<th class="type">Discount</th>
+		<th class="type">Image</th>
+		<th class="type">Date</th>
+		<th class="type">Mô tả</th>
+		<th class="type">Special</th>
+		<th class="type">Lượt xem</th>
+		<th class="type">ID Category</th>
+		<th class="type"></th>
+		<th class="type"></th>
 	</tr>
 	
 	<?php
@@ -25,7 +37,7 @@
 				<td><?= $ten_hanghoa ?></td>
 				<td><?= $don_gia ?></td>
 				<td><?= $giam_gia ?></td>
-				<td><img src="<?= $hinh ?>" style="width: 200px;margin: 15px;"></td>
+				<td><img src="<?= $hinh ?>" style="width: 200px"></td>
 				<td><?= $ngay_nhap ?></td>
 				<td><?= $mo_ta ?></td>
 				<td><?= $dac_biet ?></td>
@@ -33,16 +45,21 @@
 				<td><?= $ma_loai ?></td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit">
+						<input type="button" value="Edit" class="btn btn_edit">
 					</a>
 				</td>
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete">
+						<input type="button" value="Delete" class="btn btn_delete">
 					</a>
 				</td>
 			</tr>
 		<?php 
 	   }
 	?>
-</table>		
+</table>
+<button  class="input_submit btn">
+	<a href="index.php?target=addItems">ADD NEW</a>
+</button>		
+</body>
+</html>

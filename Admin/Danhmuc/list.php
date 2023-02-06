@@ -1,10 +1,10 @@
 <table border="1" cellspacing="0">
 	<tr class="row">
-		<th class="th1"></th>
-		<th class="th2">Ma Loai</th>
-		<th class="th3">Ten Loai</th>
-		<th class="th4"></th>
-		<th class="th4"></th>
+		<th class="type"></th>
+		<th class="type">Ma Loai</th>
+		<th class="type">Ten Loai</th>
+		<th class="type"></th>
+		<th class="type"></th>
 	</tr>
 	
 	<?php
@@ -19,12 +19,12 @@
 				<td><?= $ten_loai ?></td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit">
+						<input type="button" value="Edit"  class="btn_edit">
 					</a>
 				</td>
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete">
+						<input type="button" value="Delete" class="btn_delete">
 					</a>
 				</td>
 			</tr>

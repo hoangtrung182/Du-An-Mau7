@@ -22,9 +22,9 @@
 		return $item;
 	}
 
-	function update_item($id, $ten_sp, $gia_sp, $giam_gia, $image, $mota, $view, $ma_loai) {
+	function update_item($id, $ten_sp, $gia_sp, $giam_gia, $image, $date, $mota, $view, $ma_loai) {
 		$sql = "UPDATE hanghoa SET ten_hanghoa ='$ten_sp', don_gia = '$gia_sp', giam_gia = '$giam_gia',
-		 hinh = '$image', mo_ta = '$mota', so_luot_xem = '$view', ma_loai = '$ma_loai'  
+		 hinh = '$image',ngay_nhap='$date', mo_ta = '$mota', so_luot_xem = '$view', ma_loai = '$ma_loai'  
 		 WHERE ma_hanghoa =".$id;
 		pdo_execute($sql);
 	}

@@ -12,7 +12,7 @@
 	<h2>Form thêm mới sản phẩm</h2>
 	<form action="index.php?target=addItems" method="post" enctype="multipart/form-data">
 		<p>Loại hàng</p>
-		<select name="maloai" id="" class="option_dm" > 
+		<select name="maloai" id="" class="select_op"> 
 				<?php foreach ($listCates as $loaihang) { 
 					extract($loaihang);
 					?>
@@ -24,7 +24,7 @@
 		
 		<div class="text_input">
 			<p class="input_title">Mã loại hàng</p>
-			<input type="text" name="iditem" disabled placeholder="không sửa đổi" class="input_second">
+			<input type="text" name="iditem" disabled placeholder="Không thay đổi mã loại hàng" class="input_second">
 		</div>
 		<div class="text_input">
 		<p class="input_title">Tên sản phẩm</p>
@@ -43,19 +43,22 @@
 			<input type="file" name="imageitem"  class="input_second"  >
 		</div>
 		<div class="text_input">
+			<p>Ngày nhập</p>
+			<input type="date" name="date"  class="input_second"  >
+		</div>
+		<div class="text_input">
 			<p>Mô tả</p>
 			<textarea name="descitem" cols="60" rows="5" class="input_second"></textarea>
 		</div>
 		<p>Lượt xem</p>
 		<input type="number" name="views"  class="input_second" >
+
 		<div class="button">
-			
-			<input type="submit" value="ADD" name="updateitem" class="input_submit btn">
-			<input type="reset" value="Retype" class="input_reset btn">
+			<input type="submit" value="ADD" name="addNewItem" class="input_button btn">
+			<input type="reset" value="Retype" class="input_button btn">
 			<a href="index.php?target=listItems"><input type="button" value="List Product" class="btn" ></a>
+			
 		</div>
-	
-		
 		<?= isset($thongbao) ? $thongbao : '' ?>
 	</form>
 </section>

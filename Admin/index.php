@@ -51,7 +51,7 @@
 					$discount = $_POST['discountitem'];
 					$mota = $_POST['descitem'];
 					$view = $_POST['views'];
-					$date = '1-1-2010';
+					$date = $_POST['date'];
 					$ma_loai = $_POST['maloai'];
 
 					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
@@ -68,7 +68,7 @@
 						}
 					}
 
-					insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai); 
+					insert_item($ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai); 
 					$thongbao = "Thêm mới sản phẩm  thành công !";	
 				}
 
@@ -103,7 +103,7 @@
 					$discount = $_POST['discountitem'];
 					$mota = $_POST['descitem'];
 					$view = $_POST['views'];
-					$date = '1-1-2010';
+					$date = $_POST['date'];
 					$ma_loai = $_POST['maloai'];
 
 					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
@@ -119,7 +119,7 @@
 							$save_url = $url;
 						}
 					}
-					update_item($id, $ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai);
+					update_item($id, $ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai);
 					$thongbao = "Cập nhật sp thành công!";
 				}
 				$listItems = select_items();
