@@ -1,5 +1,5 @@
 .main {
-    max-width: 80%;
+    max-width: 100%;
     margin: auto;
     background-color: rgb(227 227 227);
     padding-left: 80px;
@@ -67,9 +67,13 @@ button {
     /* border: none; */
     padding: 5px 10px;
     border-radius: 5px;
+    margin: auto;
+    border: 1px solid #ddd;
 }
 
 .btn_edit {
     padding: 5px 15px;
+    margin: auto;
     border-radius: 5px;
+    border: 1px solid #ddd;
 }

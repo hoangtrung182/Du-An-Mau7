@@ -76,7 +76,7 @@ html {
 }
 
 table {
-	border: 1px solid rgb(174, 149, 149);
+	border: 0.5px solid #f3eeee;
 	width: 100%;
 }
 
@@ -101,12 +101,12 @@ table {
 */
 img {
 	width: 200px;
-	height: 100px;
+	height: 150px;
 	max-width: 100%;
 }
 
 .main {
-	max-width: 80%;
+	max-width: 100%;
 	margin: auto;
 	background-color: rgb(227 227 227);
 	padding-left: 80px;
@@ -121,7 +121,7 @@ img {
 
 .type {
 	padding: 10px 10px;
-	background-color: rgb(174, 149, 149);
+	background-color: rgb(227 227 227);
 }
 
 .input_submit a {
@@ -151,4 +151,24 @@ img {
     line-height: 40px;
     padding-left: 14px;
     border-radius: 3px;
+}
+
+
+/*======Main-item========*/
+.main-menu {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+}
+.main-item {
+	border: 1px solid #ddd;
+	text-align: center;
+}
+.main-title a {
+	color: #000;
+	text-decoration: none;
+}
+
+.main-title a:hover {
+	text-decoration: underline;
 }

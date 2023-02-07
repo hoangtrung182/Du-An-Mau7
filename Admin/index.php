@@ -130,18 +130,20 @@
 						}
 					}
 					update_item($id, $ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai);
-					$thongbao = "Cập nhật sp thành công!";
+					$thongbao_update = "Cập nhật sp thành công!";
 				}
 				$listItems = select_items();
 				include './Product/list.php';
 				break;
 			default:
+				// $listItems = select_items();
 				include 'body.php';
 				break;
 		}
 	}else {
+		$listItems = select_items();
 		include 'body.php';
+		// break;
 	}
-
 	include 'footer.php';	
  ?>
