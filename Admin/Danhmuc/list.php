@@ -1,12 +1,18 @@
-<table border="1" cellspacing="0">
+<?php 
+	$thongbao = isset($thongbao) ? $thongbao : '';
+	$thongbao_delete = isset($thongbao_xoa) ? $thongbao_xoa : '';
+?>
+<p class=""><?= $thongbao ?></p>
+<p class=""><?= $thongbao_delete ?></p>
+
+<table border="" cellspacing="0">
 	<tr class="row">
 		<th class="type"></th>
-		<th class="type">Ma Loai</th>
-		<th class="type">Ten Loai</th>
+		<th class="type">Mã loại</th>
+		<th class="type">Tên loại</th>
 		<th class="type"></th>
 		<th class="type"></th>
 	</tr>
-	
 	<?php
 		foreach($listCates as $loaihang) {
 			extract($loaihang);
@@ -28,12 +34,8 @@
 					</a>
 				</td>
 			</tr>
-		<?php
-		}
-	?>
+		<?php  }  ?>
 </table>
-<?php $thongbao = isset($thongbao) ? $thongbao : ''  ?>
-<p><?= $thongbao ?></p>
 <button  class="input_submit btn">
-	<a href="index.php?target=addCate">ADD NEW</a>
+	<a href="index.php?target=addmoveCate">ADD NEW</a>
 </button>

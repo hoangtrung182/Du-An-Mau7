@@ -1,5 +1,5 @@
 	<footer class="footer">
-		<p>Hoang Trung Present</p>
+		<p>Team 7 together</p>
 	</footer>
 	</div>
 </body>

@@ -14,17 +14,17 @@
 		<p>Loại hàng</p>
 		<select name="maloai" id="" class="select_op"> 
 				<?php foreach ($listCates as $loaihang) { 
-					extract($loaihang);
-					?>
+					extract($loaihang);?>
 					<option value="<?= $ma_loai ?>">
 						<?= $ten_loai ?>	
 					</option>
 				<?php } ?>
 		</select><br>
-		
 		<div class="text_input">
 			<p class="input_title">Mã loại hàng</p>
-			<input type="text" name="iditem" disabled placeholder="Không thay đổi mã loại hàng" class="input_second">
+			<input type="text" name="iditem" disabled 
+					placeholder="Không thay đổi mã loại hàng" 
+					class="input_second">
 		</div>
 		<div class="text_input">
 		<p class="input_title">Tên sản phẩm</p>

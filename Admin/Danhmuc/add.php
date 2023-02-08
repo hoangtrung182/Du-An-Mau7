@@ -1,3 +1,4 @@
+
 <section class="main">
 	<h2>Form thêm mới danh mục</h2>
 	<form action="index.php?target=addCate" method="post">
@@ -9,7 +10,7 @@
 			 class="input_second">
 		<div class="button">
 			<input type="submit" value="ADD" name="addNewCate" class="input_submit btn">
-			<input type="reset" value="Retype" class="input_reset btn">
+			<input type="reset" value="Reset" class="input_reset btn">
 			<a href="index.php?target=listCate"><input type="button" value="List Item" class="btn" ></a>
 		</div>
 		<?= isset($thongbao) ? $thongbao : '' ?>
