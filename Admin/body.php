@@ -1,9 +1,15 @@
-
 <section class="main-menu">
 	<?php
 		foreach ($listItems as $hanghoa) { 
-			extract($hanghoa) ?>
+			extract($hanghoa); ?>
 		 	<div class="main-item">
+		 		<div class="main-type">
+		 			<?php
+		 				$item = loadOne_cate($ma_loai);
+		 				extract($item);
+		 			 ?>
+		 			 <?= $ten_loai ?>
+		 		</div>
 		 		<div class="main-image">
 		 			<a href="">
 		 				<img src="<?= $hinh ?>" alt="">

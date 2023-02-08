@@ -53,7 +53,7 @@
 		</div>
 		<div class="text_input">
 			<p>Ngày nhập</p>
-			<input type="date" name="date"  
+			<input type="date" name="date" value="<?= $ngay_nhap ?>" 
 					class="input_second">
 		</div>
 		<div class="">

@@ -8,9 +8,9 @@
 				placeholder="Không được thay đổi mã loại">
 		<p>Tên Loại</p>
 		<input type="text" name="tenloai"
-			 placeholder="Nhập tên loại hàng..." 
-			 class="input_second"
-			 value="<?= $ten_loai ?>">
+			   placeholder="Nhập tên loại hàng..." 
+			   class="input_second"
+			   value="<?= $ten_loai ?>">
 		<div class="button">
 			<input type="hidden" name="id" value="<?= $ma_loai ?>"> 
 			<input type="submit" value="Edit" name="updateCate" class="input_submit btn">
