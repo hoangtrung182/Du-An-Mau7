@@ -28,30 +28,37 @@
 		</div>
 		<div class="text_input">
 		<p class="input_title">Tên sản phẩm</p>
-			<input type="text" name="nameitem"  class="input_second" >
+			<input type="text" name="nameitem"  class="input_second" ><br>
+			<span style="color:red;"><?= isset($thongbao1) ? $thongbao1 : '' ?></span>
 		</div>
 		<div class="text_input">
 			<p>Giá sản phẩm</p>
-			<input type="number" name="priceitem"  class="input_second" >
+			<input type="number" name="priceitem"  class="input_second" ><br>
+			<span style="color:red;"><?= isset($thongbao2) ? $thongbao2 : '' ?></span>
 		</div>
 		<div class="text_input">
 			<p>Giảm giá sản phẩm</p>
-			<input type="number" name="discountitem"  class="input_second" >
+			<input type="number" name="discountitem"  class="input_second" ><br>
+			<span style="color:red;"><?= isset($thongbao3) ? $thongbao3 : '' ?></span>
 		</div>
 		<div class="text_input">
 			<p>Hình ảnh</p>
 			<input type="file" name="imageitem"  class="input_second"  >
+			
 		</div>
 		<div class="text_input">
 			<p>Ngày nhập</p>
-			<input type="date" name="date"  class="input_second"  >
+			<input type="date" name="date"  class="input_second"  ><br>
+			<span style="color:red;"><?= isset($thongbao4) ? $thongbao4 : '' ?></span>
 		</div>
 		<div class="text_input">
 			<p>Mô tả</p>
-			<textarea name="descitem" cols="60" rows="5" class="input_second"></textarea>
+			<textarea name="descitem" cols="60" rows="5" class="input_second"></textarea><br>
+			<br>
 		</div>
 		<p>Lượt xem</p>
-		<input type="number" name="views"  class="input_second" >
+		<input type="number" name="views"  class="input_second" ><br>
+		<span style="color:red;"><?= isset($thongbao6) ? $thongbao6 : '' ?></span>
 
 		<div class="button">
 			<input type="submit" value="ADD" name="addNewItem" class="input_button btn">

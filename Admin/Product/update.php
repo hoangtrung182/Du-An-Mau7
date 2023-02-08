@@ -45,11 +45,11 @@
 		</div>
 		<div class="text_input">
 			<p>Ngày nhập</p>
-			<input type="date" name="date"  class="input_second"  >
+			<input type="date" name="date"  class="input_second" <?= $ngay_nhap ?> >
 		</div>
 		<div class="">
 			<p>Mô tả</p>
-			<textarea name="descitem" cols="60" rows="5" class="input_second" value="<?= $mo_ta ?>"></textarea>
+			<textarea name="descitem" cols="60" rows="5" class="input_second" value="<?= $mo_ta ?>"><?= $mo_ta ?></textarea>
 		</div>
 		<p>Lượt xem</p>
 		<input type="number" name="views" value="<?= $so_luot_xem ?>"  class="input_second">

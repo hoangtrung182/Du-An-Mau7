@@ -53,6 +53,25 @@
 					$view = $_POST['views'];
 					$date = $_POST['date'];
 					$ma_loai = $_POST['maloai'];
+					
+					if($_POST['nameitem']==null){
+						$thongbao1 = "Vui lòng nhập tên sản phẩm !";	
+					}
+					if($_POST['priceitem']==null || $_POST['priceitem']<0){
+						$thongbao2 = "Vui lòng nhập giá sản phẩm là số dương !";	
+					}
+					if($_POST['discountitem']==null || $_POST['discountitem']<0){
+						$thongbao3 = "Vui lòng nhập giá sale sản phẩm là số dương !";	
+					}
+					if($_POST['date']==null){
+						$thongbao4 = "Vui lòng nhập ngày nhập sản phẩm !";	
+					}
+					if($_POST['descitem']==null){
+						$thongbao5 = "Vui lòng nhập mô tả sản phẩm !";	
+					}
+					if($_POST['views']==null || $_POST['views']<0){
+						$thongbao6 = "Vui lòng nhập số lượt xem là số dương sản phẩm !";	
+					}
 
 					$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
 					$save_url = '';
@@ -67,9 +86,11 @@
 							$save_url = $url;
 						}
 					}
-
-					insert_item($ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai); 
-					$thongbao = "Thêm mới sản phẩm  thành công !";	
+					if($ten_loai && $gia>0 && $discount>0 && $mota && $view>0 && $date){
+						insert_item($ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai); 
+						$thongbao = "Thêm mới sản phẩm  thành công !";	
+						
+					}
 				}
 
 				$listCates = select_cate();

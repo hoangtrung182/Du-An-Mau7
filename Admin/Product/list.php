@@ -50,7 +50,7 @@
 				</td>
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete" class="btn btn_delete">
+						<input type="button" value="Delete" class="btn btn_delete" onclick="return confirm('Bạn có chắc chắn muốn xóa không!')">
 					</a>
 				</td>
 			</tr>
