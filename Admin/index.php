@@ -151,7 +151,27 @@
 				$listComment = select_comments();
 				include './binhluan/list.php';
 				break;
-
+			case 'editBinhluan': 
+					if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+						$comment = loadOne_comment($_GET['id']);
+					}
+					$comment = $comment;
+					include './binhluan/update.php';
+					break;
+			case 'editedBinhluan': 
+					if(isset($_POST['updateComment']) && $_POST['updateComment']) {
+						$id = $_POST['id'];
+						$ma_binh_luan = $_POST['mabinhluan'];
+						$noi_dung = $_POST['content'];
+						$ma_khach_hang = $_POST['idUser'];
+						$ma_hang_hoa = $_POST['idCate'];
+						$khoang_thoi_gian = $_POST['time'];
+						update_comment($id, $noi_dung, $khoang_thoi_gian);
+						$thongbao = "Cập nhật danh mục thành công!";
+					}
+					$listBinhluan = select_comments();
+					include './binhluan/list.php';
+					break;
 			default:
 				// $listItems = select_items();
 				include 'body.php';
