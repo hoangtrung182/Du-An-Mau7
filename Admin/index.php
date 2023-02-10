@@ -3,6 +3,7 @@
 	include './model/pdo.php';
 	include './model/danhmuc.php';
 	include './model/hanghoa.php';
+	include './model/binhluan.php';
 	
 	if(isset($_GET['target'])) {
 		$variable = $_GET['target'];
@@ -135,6 +136,22 @@
 				$listItems = select_items();
 				include './Product/list.php';
 				break;
+
+			case 'listbl': 
+				$listBinhluan = select_comments();
+				include './binhluan/list.php';
+				break;
+			
+			case 'deleteBinhluan' : 
+				if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+					delete_comment($_GET['id']);
+					$thongbao_xoa = "Xóa thành công!";
+				}
+	
+				$listComment = select_comments();
+				include './binhluan/list.php';
+				break;
+
 			default:
 				// $listItems = select_items();
 				include 'body.php';
@@ -145,5 +162,4 @@
 		include 'body.php';
 		// break;
 	}
-	include 'footer.php';	
- ?>
+	include 'footer.php';
