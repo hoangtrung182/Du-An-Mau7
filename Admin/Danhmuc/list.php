@@ -5,7 +5,7 @@
 <p class=""><?= $thongbao ?></p>
 <p class=""><?= $thongbao_delete ?></p>
 
-<table border="" cellspacing="0">
+<table border="1" cellspacing="0">
 	<tr class="row">
 		<th class="type"></th>
 		<th class="type">Mã loại</th>

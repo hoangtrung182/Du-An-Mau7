@@ -7,6 +7,8 @@
 	if(isset($_GET['target'])) {
 		$variable = $_GET['target'];
 		switch ($variable) {
+			case 'abc': 
+				break;
 			case 'addmoveCate': 
 				include './Danhmuc/add.php';
 				break;

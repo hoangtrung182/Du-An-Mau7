@@ -11,7 +11,7 @@
 		 			 <?= $ten_loai ?>
 		 		</div>
 		 		<div class="main-image">
-		 			<a href="">
+		 			<a href="index.php?target=abc&id=<?= $ma_hanghoa ?>">
 		 				<img src="<?= $hinh ?>" alt="">
 		 			</a>
 		 		</div>
