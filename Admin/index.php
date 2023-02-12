@@ -60,7 +60,7 @@ if (isset($_GET['target'])) {
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$item = loadOne_cate($_GET['id']);
 			}
-			$item = $item;
+
 			include './Danhmuc/update.php';
 			break;
 		case 'editedCate':
