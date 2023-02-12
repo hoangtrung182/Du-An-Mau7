@@ -53,7 +53,7 @@
 		</div>
 		<div class="text_input">
 			<p>Mô tả</p>
-			<textarea name="descitem" cols="60" rows="5" class="input_second"></textarea><br>
+			<textarea name="descitem" cols="60" rows="7" class="input_mota"></textarea><br>
 			<br>
 		</div>
 		<p>Lượt xem</p>

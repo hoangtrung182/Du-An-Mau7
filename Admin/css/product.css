@@ -24,6 +24,18 @@
     border: 1px solid #957575;
 }
 
+.input_mota {
+    width: 80%;
+
+    border: none;
+    background-color: rgb(208 222 225);
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #957575;
+}
+
 .text-area {
     font-size: 16px;
 }

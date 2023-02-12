@@ -8,6 +8,20 @@
 	<link rel="stylesheet" href="./css/list_product.css">
 </head>
 <body>
+<h2>Danh sách sản phẩm</h2>
+	<form action="index.php?target=listItems" method="post">
+		<input type="text" name="keyw" id="" class="" placeholder="Nhập tên sản phẩm.....">
+		<select name="maloai" id="" class=""> 
+			<option value="0" selected>Tất cả</option>
+				<?php foreach ($listCates as $loaihang) { 
+					extract($loaihang);?>
+					<option value="<?= $ma_loai ?>">
+						<?= $ten_loai ?>	
+					</option>
+				<?php } ?>
+		</select>
+		<input type="submit" value="GO" name="listok">
+	</form>
 <?php 
 	$thongbao = isset($thongbao) ? $thongbao : '';
 	$thongbao_xoa = isset($thongbao_delete) ? $thongbao_delete : '';
@@ -16,16 +30,17 @@
 <p class=""><?= $thongbao ?></p>
 <p class=""><?= $thongbao_xoa ?></p>
 <p class=""><?= $thongbao_sua ?></p>
+
 <table border="1" cellspacing="0">
 	<tr class="row">
 		<th class="type"></th>
 		<th class="type">id</th>
-		<th class="type">Name</th>
+		<th class="type_name">Name</th>
 		<th class="type">Price</th>
 		<th class="type">Discount</th>
 		<th class="type">Image</th>
 		<th class="type">Date</th>
-		<th class="type">Description</th>
+		<th class="type_desc">Description</th>
 		<th class="type">Views</th>
 		<th class="type">Mã loại</th>
 		<th class="type"></th>
@@ -37,7 +52,14 @@
 			extract($hanghoa);
 			$editItem = "index.php?target=editItem&id=".$ma_hanghoa;
 			$deleteItem = "index.php?target=deleteItem&id=".$ma_hanghoa;
-			?>
+			// $hinhpart="./Image/".$hinh;
+			// if(is_file($hinhpart)){
+			// 	$hinh="<img src='".$hinhpart."' height=50px;>";
+			// }else{
+			// 	$hinh="NO photo";
+			// }
+			
+		?>
 			<tr class="row1">
 				<td><input type="checkbox" name=""></td>
 				<td><?= $ma_hanghoa ?></td>
