@@ -27,7 +27,7 @@
 					<a href="<?= $editItem ?>">
 						<input type="button" value="Edit"  class="btn_edit">
 					</a>
-				</td>
+				</td> 
 				<td>
 					<a href="<?= $deleteItem ?>">
 						<input type="button" value="Delete" class="btn_delete">

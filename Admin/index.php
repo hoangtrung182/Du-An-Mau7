@@ -5,11 +5,20 @@ include './model/danhmuc.php';
 include './model/hanghoa.php';
 $listCates = select_cate();
 
-
+include './view/product.php';
 if (isset($_GET['target'])) {
 	$variable = $_GET['target'];
 	switch ($variable) {
+		case 'product':
+			if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
+				$iddm = $_GET['iddm'];
+				$list_product = select_items_search("", $iddm);
 
+				$name_dm = loadname_item($iddm);
+			}
+
+			include './view/product.php';
+			break;
 		case 'product_ct':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$id = $_GET['id'];
@@ -184,7 +193,7 @@ if (isset($_GET['target'])) {
 			break;
 		default:
 			// $listItems = select_items();
-			include './view/body.php';
+			include 'body.php';
 			break;
 	}
 } else {
