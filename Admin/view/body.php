@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -72,10 +72,43 @@
 			</div>
 			<div class="box">
 				<h3>DANH MỤC</h3>
+				<?php
+				foreach ($load_nameitem as $products) {
+					extract($products);
+					$link_product = "index.php?target=product&id=" . $ma_loai;
+					echo '<li><a href="' . $link_product . '">' . $ten_loai . '</li>';
+				}
+				?>
+				<br>
 
 			</div>
 			<div class="box">
-				<h3>TOP 10 YÊU THÍCH</h3>
+				<!-- <h3>TOP 10 YÊU THÍCH</h3> -->
+				<div>
+					<?php
+
+					foreach ($list_top10 as $hanghoa) {
+						extract($hanghoa); ?>
+						<div class="box1">
+
+							<div class="">
+								<a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
+									<img class="img_top" src="<?= $hinh ?>" alt="">
+								</a>
+							</div>
+							<div class="main-info">
+
+
+								<h3 class="main-title">
+									<a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
+										<?= $ten_hanghoa ?>
+									</a>
+								</h3>
+
+							</div>
+						</div>
+					<?php } ?>
+				</div>
 			</div>
 		</div>
 	</div>

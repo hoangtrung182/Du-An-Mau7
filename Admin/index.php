@@ -1,29 +1,39 @@
 <?php
-include 'view/header.php';
+include './view/header.php';
 include './model/pdo.php';
 include './model/danhmuc.php';
 include './model/hanghoa.php';
-$listCates = select_cate();
+include './model/binhluan.php';
 
-include './view/product.php';
+
+$listbody = select_items_body();
+$load_nameitem = select_cate();
+$list_top10 = select_product_top10();
+
 if (isset($_GET['target'])) {
 	$variable = $_GET['target'];
 	switch ($variable) {
 		case 'product':
-			if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
-				$iddm = $_GET['iddm'];
-				$list_product = select_items_search("", $iddm);
 
-				$name_dm = loadname_item($iddm);
+			if (isset($_POST['keyw']) && $_POST['keyw'] != "") {
+				$keyw = $_POST['keyw'];
+			} else {
+				$keyw = " ";
 			}
 
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				$id = $_GET['id'];
+			} else {
+				$id = 0;
+			}
+			$list_dm = select_items_search($keyw, $id);
+			$ten_dm = loadname_item($id);
 			include './view/product.php';
 			break;
 		case 'product_ct':
-			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
 				$id = $_GET['id'];
-
-				$item = loadOne_item($_GET['id']);
+				$item = loadOne_item($id);
 				extract($item);
 				$items = load_products($id, $ma_loai);
 			}
@@ -46,7 +56,6 @@ if (isset($_GET['target'])) {
 			$listCates = select_cate();
 			include './Danhmuc/list.php';
 			break;
-
 		case 'deleteCate':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				delete_cate($_GET['id']);
@@ -60,7 +69,7 @@ if (isset($_GET['target'])) {
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$item = loadOne_cate($_GET['id']);
 			}
-
+			//$item = $item;
 			include './Danhmuc/update.php';
 			break;
 		case 'editedCate':
@@ -73,7 +82,6 @@ if (isset($_GET['target'])) {
 			$listCates = select_cate();
 			include './Danhmuc/list.php';
 			break;
-
 		case 'addmoveItems':
 			$listCates = select_cate();
 			include './Product/add.php';
@@ -88,25 +96,6 @@ if (isset($_GET['target'])) {
 				$date = $_POST['date'];
 				$ma_loai = $_POST['maloai'];
 
-				// if($_POST['nameitem']==null){
-				// 	$thongbao1 = "Vui lòng nhập tên sản phẩm !";	
-				// }
-				// if($_POST['priceitem']==null || $_POST['priceitem']<0){
-				// 	$thongbao2 = "Vui lòng nhập giá sản phẩm là số dương !";	
-				// }
-				// if($_POST['discountitem']==null || $_POST['discountitem']<0){
-				// 	$thongbao3 = "Vui lòng nhập giá sale sản phẩm là số dương !";	
-				// }
-				// if($_POST['date']==null){
-				// 	$thongbao4 = "Vui lòng nhập ngày nhập sản phẩm !";	
-				// }
-				// if($_POST['descitem']==null){
-				// 	$thongbao5 = "Vui lòng nhập mô tả sản phẩm !";	
-				// }
-				// if($_POST['views']==null || $_POST['views']<0){
-				// 	$thongbao6 = "Vui lòng nhập số lượt xem là số dương sản phẩm !";	
-				// }
-
 				$anh_dai_dien = isset($_FILES['imageitem']) ? $_FILES['imageitem'] : '';
 				$save_url = '';
 				if ($anh_dai_dien['size'] > 0 && $anh_dai_dien['size'] < 500000) {
@@ -120,27 +109,26 @@ if (isset($_GET['target'])) {
 						$save_url = $url;
 					}
 				}
-				//if($ten_loai && $gia >0 && $discount >0 && $mota && $view >0 && $date){
-				insert_item($ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai);
-				$thongbao = "Thêm mới sản phẩm  thành công !";
 
-				//}
+				insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai, $date);
+				$thongbao = "Thêm mới sản phẩm  thành công !";
 			}
 
 			$listItems = select_items();
-
 			include './Product/list.php';
 			break;
 		case 'listItems':
 			if (isset($_POST['listok']) && $_POST['listok']) {
 				$keyw = $_POST['keyw'];
-				$ma_loai = $_POST['maloai'];
+				$iddm = $_POST['maloai'];
 			} else {
 				$keyw = "";
-				$ma_loai = 0;
+				$iddm = 0;
 			}
 			$listCates = select_cate();
-			$listItems = select_items_search($keyw, $ma_loai);
+			$listItems = select_items_search($keyw, $iddm);
+
+
 			include './Product/list.php';
 			break;
 		case 'deleteItem':
@@ -155,7 +143,6 @@ if (isset($_GET['target'])) {
 		case 'editItem':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$item = loadOne_item($_GET['id']);
-
 			}
 			$listCates = select_cate();
 			include './Product/update.php';
@@ -191,15 +178,50 @@ if (isset($_GET['target'])) {
 			$listItems = select_items();
 			include './Product/list.php';
 			break;
+
+		case 'listbl':
+			$listBinhluan = select_comments();
+			include './binhluan/list.php';
+			break;
+
+		case 'deleteBinhluan':
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				delete_comment($_GET['id']);
+				$thongbao_xoa = "Xóa thành công!";
+			}
+
+			$listComment = select_comments();
+			include './binhluan/list.php';
+			break;
+		case 'editBinhluan':
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				$comment = loadOne_comment($_GET['id']);
+			}
+			//$comment = $comment;
+			include './binhluan/update.php';
+			break;
+		case 'editedBinhluan':
+			if (isset($_POST['updateComment']) && $_POST['updateComment']) {
+				$id = $_POST['id'];
+				$ma_binh_luan = $_POST['mabinhluan'];
+				$noi_dung = $_POST['content'];
+				$ma_khach_hang = $_POST['idUser'];
+				$ma_hang_hoa = $_POST['idCate'];
+				$khoang_thoi_gian = $_POST['time'];
+				update_comment($id, $noi_dung, $khoang_thoi_gian);
+				$thongbao = "Cập nhật danh mục thành công!";
+			}
+			$listBinhluan = select_comments();
+			include './binhluan/list.php';
+			break;
 		default:
 			// $listItems = select_items();
-			include 'body.php';
+			include './view/body.php';
 			break;
 	}
 } else {
-	$listbody = select_items_body();
+	$listItems = select_items();
 	include './view/body.php';
-	//break;
+	// break;
 }
 include './view/footer.php';
-?>
