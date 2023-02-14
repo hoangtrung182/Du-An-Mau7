@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loc San pham</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
-
 <body>
     <div class="body_main">
         <div class="left">
@@ -45,16 +42,10 @@
                 <?php } ?>
 
             </div>
-
-
-
-
         </div>
-
         <div class="right">
             <div class="box">
                 <h3>TÀI KHOẢN</h3>
-
             </div>
             <div class="box">
                 <h3>DANH MỤC</h3>
@@ -63,14 +54,11 @@
                     extract($products);
                     $link_product = "index.php?target=product&id=" . $ma_loai;
                     echo '<li><a href="' . $link_product . '">' . $ten_loai . '</li>';
-                }
-                ?>
-
+                } ?>
             </div>
             <div class="box">
                 <div>
                     <?php
-
                     foreach ($list_top10 as $hanghoa) {
                         extract($hanghoa); ?>
                         <div class="box1">
@@ -81,21 +69,17 @@
                                 </a>
                             </div>
                             <div class="main-info">
-
-
                                 <h3 class="main-title">
                                     <a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
                                         <?= $ten_hanghoa ?>
                                     </a>
                                 </h3>
-
                             </div>
                         </div>
                     <?php } ?>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 

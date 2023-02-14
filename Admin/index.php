@@ -210,6 +210,9 @@ if (isset($_GET['target'])) {
 			$listBinhluan = select_comments();
 			include './binhluan/list.php';
 			break;
+		case 'listUsers':
+			include './khachhang/list.php';
+			break;
 		default:
 			// $listItems = select_items();
 			include './view/body.php';

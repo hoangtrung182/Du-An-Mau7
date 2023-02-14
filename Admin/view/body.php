@@ -19,28 +19,21 @@
 				  <!-- Full-width images with number and caption text -->
 				  <div class="mySlides fade">
 				    <div class="numbertext">1 / 3</div>
-				    <img src="Image/63e51dd662bfflaptop1.jpg" style="width:200px;height: 200px">
+				    <img src="Image/ipbanner.jpg" style="width:100%;height: 200px">
 				    <div class="text">Caption Text</div>
 				  </div>
 
 				  <div class="mySlides fade">
 				    <div class="numbertext">2 / 3</div>
-				    <img src="Image/63e50e9a1db5diphone14promax.jpg" style="width:200px;height: 200px">
+				    <img src="Image/iphonebanner.jpg" style="width:100%;height: 200px">
 				    <div class="text">Caption Two</div>
 				  </div>
 
 				  <div class="mySlides fade">
 				    <div class="numbertext">3 / 3</div>
-				    <img src="Image/63e51e4f7dc0cmayin1.jpg" style="width:200px; height: 200px">
+				    <img src="Image/laptopbanner.jpg" style="width:100%; height: 200px">
 				    <div class="text">Caption Three</div>
 				  </div>
-
-				   <div class="mySlides fade">
-				    <div class="numbertext">3 / 3</div>
-				    <img src="Image/63e51042c7e2fmacbook1.jpg" style="width:200px; height: 200px">
-				    <div class="text">Caption Three</div>
-				  </div>
-
 				  <!-- Next and previous buttons -->
 				  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				  <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -146,39 +139,7 @@
 			</div>
 		</div>
 	</div>
-
 	<script>
-		// let slideIndex = 1;
-		// showSlides(slideIndex);
-
-		// // Next/previous controls
-		// function plusSlides(n) {
-		//   showSlides(slideIndex += n);
-		// }
-
-		// // Thumbnail image controls
-		// function currentSlide(n) {
-		//   showSlides(slideIndex = n);
-		// }
-
-		// function showSlides(n) {
-		//   let i;
-		//   let slides = document.getElementsByClassName("mySlides");
-		//   let dots = document.getElementsByClassName("dot");
-		//   if (n > slides.length) {slideIndex = 1}
-		//   if (n < 1) {slideIndex = slides.length}
-		//   for (i = 0; i < slides.length; i++) {
-		//     slides[i].style.display = "none";
-		//   }
-		//   for (i = 0; i < dots.length; i++) {
-		//     dots[i].className = dots[i].className.replace(" active", "");
-		//   }
-		//   slides[slideIndex-1].style.display = "block";
-		//   dots[slideIndex-1].className += " active";
-		// }
-
-
-
 		let slideIndex = 0;
 		showSlides();
 

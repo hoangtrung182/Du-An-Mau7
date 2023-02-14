@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>List San Pham</title>
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -13,7 +13,7 @@
 	<h2>Danh sách sản phẩm</h2>
 	<p>Tìm kiếm sản phẩm</p>
 	<form action="index.php?target=listItems" method="post">
-		<input type="text" name="keyw" id="" class="" placeholder="Nhập tên sản phẩm.....">
+		<input type="text" name="keyw" id="filter-input" class="" placeholder="Nhập tên sản phẩm.....">
 		<select name="maloai" id="" class="select-product">
 			<option value="0" selected>Tất cả</option>
 			<?php foreach ($listCates as $loaihang) {

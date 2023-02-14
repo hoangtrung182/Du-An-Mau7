@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>San pham chi tiet</title>
 	<link rel="stylesheet" href="../css/style.css">
 
 </head>
@@ -86,13 +86,6 @@
 			</div>
 			<div class="box">
 				<h3 class="cate-title">DANH MỤC</h3>
-				<!-- <?php
-				foreach ($load_nameitem as $products) {
-					extract($products);
-					$link_product = "index.php?target=product&id=" . $ma_loai;
-					echo '<li><a href="' . $link_product . '">' . $ten_loai . '</a></li>';
-				}
-				?> -->
 				<ul class="cate-menu">
 					<?php 
 					foreach ($load_nameitem as $products) {
