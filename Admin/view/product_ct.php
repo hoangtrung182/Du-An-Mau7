@@ -29,11 +29,19 @@
 			</div>
 
 			<div class="row_product">
-				<div class="title_row">BÌNH LUẬN</div>
-				<div class="main_row">
-					<iframe src="binhluan/form_comment.php?id=<?= $ma_binh_luan ?>" frameborder="0" width="100%"
-						height="300px"></iframe>
+
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+				<script>
+					$(document).ready(function () {
+						$("#binhluan").load("./binhluan/form_comment.php", { idpro:<?= $ma_hanghoa ?>} )
+
+					});
+				</script>
+				<div>
+					<span id="binhluan"></span>
+
 				</div>
+
 			</div>
 
 			<div class="row_product">
@@ -43,8 +51,9 @@
 					foreach ($items as $products) {
 						extract($products);
 
-						$link_product = "index.php?target=product_ct&id=" . $ma_hanghoa;
-						echo '<li><a href="' . $link_product . '">' . $ten_hanghoa . '</li>';
+						$link_products = "index.php?target=product_ct&id=" . $ma_hanghoa;
+						echo '<li><a href="' . $link_products . '">' . $ten_hanghoa . '</a></li>';
+
 					}
 					?>
 				</div>
@@ -54,23 +63,41 @@
 		<div class="right">
 			<div class="box">
 				<h3>TÀI KHOẢN</h3>
-
+				<form action="" method="post">
+					<p>Tên đăng nhập</p>
+					<input type="text" name="name">
+					<p>Mật khẩu</p>
+					<input type="password" name="password" id=""> <br>
+					<input type="checkbox" name="checkbox" id="">Ghi nhớ tài khoản<br>
+					<input type="submit" value="Đăng nhập">
+				</form>
+				<ul>
+					<li>Quên mật khẩu</li>
+					<li><a href="index.php?target=dangky">Đăng ký thành viên</a></li>
+				</ul>
 			</div>
 			<div class="box">
 				<h3>DANH MỤC</h3>
 				<div>
 					<?php
-					foreach ($load_nameitem as $products) {
-						extract($products);
+					foreach ($load_nameitem as $sp) {
+						extract($sp);
 						$link_product = "index.php?target=product&id=" . $ma_loai;
-						echo '<li><a href="' . $link_product . '">' . $ten_loai . '</li>';
+						echo '<li><a href="' . $link_product . '">' . $ten_loai . '</a></li>';
 					}
 					?>
 				</div>
+				<br>
+				<div>
+					<form action="index.php?target=product" method="post">
+						<input type="text" name="keyw" id="">
+						<input type="submit" value="Tìm kiếm" name="search">
 
+					</form>
+				</div>
 			</div>
 			<div class="box">
-				<h2>TOP 10 YÊU THÍCH</h2>
+				<h3>TOP 10 YÊU THÍCH</h3>
 				<div>
 					<?php
 

@@ -55,7 +55,18 @@
         <div class="right">
             <div class="box">
                 <h3>TÀI KHOẢN</h3>
-
+                <form action="" method="post">
+                    <p>Tên đăng nhập</p>
+                    <input type="text" name="name">
+                    <p>Mật khẩu</p>
+                    <input type="password" name="password" id=""> <br>
+                    <input type="checkbox" name="checkbox" id="">Ghi nhớ tài khoản<br>
+                    <input type="submit" value="Đăng nhập">
+                </form>
+                <ul>
+                    <li>Quên mật khẩu</li>
+                    <li><a href="index.php?target=dangky">Đăng ký thành viên</a></li>
+                </ul>
             </div>
             <div class="box">
                 <h3>DANH MỤC</h3>
@@ -63,12 +74,20 @@
                 foreach ($load_nameitem as $products) {
                     extract($products);
                     $link_product = "index.php?target=product&id=" . $ma_loai;
-                    echo '<li><a href="' . $link_product . '">' . $ten_loai . '</li>';
+                    echo '<li><a href="' . $link_product . '">' . $ten_loai . '</a></li>';
                 }
                 ?>
+                <br>
+                <div>
+                    <form action="index.php?target=product" method="post">
+                        <input type="text" name="keyw" id="">
+                        <input type="submit" value="Tìm kiếm" name="search">
 
+                    </form>
+                </div>
             </div>
             <div class="box">
+                <h3>TOP 10 YÊU THÍCH</h3>
                 <div>
                     <?php
 

@@ -4,6 +4,7 @@ include './model/pdo.php';
 include './model/danhmuc.php';
 include './model/hanghoa.php';
 include './model/binhluan.php';
+include './model/taikhoan.php';
 
 
 $listbody = select_items_body();
@@ -14,7 +15,6 @@ if (isset($_GET['target'])) {
 	$variable = $_GET['target'];
 	switch ($variable) {
 		case 'product':
-
 			if (isset($_POST['keyw']) && $_POST['keyw'] != "") {
 				$keyw = $_POST['keyw'];
 			} else {
@@ -39,6 +39,26 @@ if (isset($_GET['target'])) {
 			}
 
 			include './view/product_ct.php';
+			break;
+		case 'dangky':
+			if (isset($_POST['dangky']) && $_POST['dangky']) {
+				$ten_kh = $_POST['name'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+				insert_khachhang($ten_kh, $email, $password);
+				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản!";
+			}
+			include './taikhoan/dangky.php';
+			break;
+		case 'dangnhap':
+			if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
+				$ten_kh = $_POST['name'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+				insert_khachhang($ten_kh, $email, $password);
+				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản!";
+			}
+			include './taikhoan/dangky.php';
 			break;
 		case 'addmoveCate':
 			include './Danhmuc/add.php';
@@ -110,7 +130,7 @@ if (isset($_GET['target'])) {
 					}
 				}
 
-				insert_item($ten_loai, $gia, $discount, $save_url, $mota, $view, $ma_loai, $date);
+				insert_item($ten_loai, $gia, $discount, $save_url, $date, $mota, $view, $ma_loai);
 				$thongbao = "Thêm mới sản phẩm  thành công !";
 			}
 
