@@ -8,6 +8,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/slideshow.css">
+	<link rel="stylesheet" href="../css/button.css">
 </head>
 
 
@@ -17,8 +18,6 @@
 			<div class="slideshow">
 				<!-- Slideshow container -->
 				<div class="slideshow-container">
-
-<<<<<<< HEAD
 				  <!-- Full-width images with number and caption text -->
 				  <div class="mySlides fade">
 				    <div class="numbertext">1 / 3</div>
@@ -40,7 +39,6 @@
 				  <!-- Next and previous buttons -->
 				  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-=======
 					<!-- Full-width images with number and caption text -->
 					<div class="mySlides fade">
 						<div class="numbertext">1 / 3</div>
@@ -62,7 +60,6 @@
 					<!-- Next and previous buttons -->
 					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 					<a class="next" onclick="plusSlides(1)">&#10095;</a>
->>>>>>> 8400fbd87daf057cb8071014e1bc5874671ed4a8
 				</div>
 				<br>
 

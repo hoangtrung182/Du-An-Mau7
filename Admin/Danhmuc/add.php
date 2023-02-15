@@ -9,9 +9,9 @@
 			 placeholder="Nhập tên loại hàng..." 
 			 class="input_second">
 		<div class="button">
-			<input type="submit" value="ADD" name="addNewCate" class="input_submit btn">
+			<input type="submit" value="Thêm mới" name="addNewCate" class="input_submit btn">
 			<input type="reset" value="Reset" class="input_reset btn">
-			<a href="index.php?target=listCate"><input type="button" value="List Item" class="btn" ></a>
+			<a href="index.php?target=listCate"><input type="button" value="Danh sách" class="btn" ></a>
 		</div>
 		<?= isset($thongbao) ? $thongbao : '' ?>
 	</form>

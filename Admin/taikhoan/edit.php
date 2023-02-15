@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm sản phẩm mới</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button.css">
 </head>
 
 <body>
@@ -53,9 +54,8 @@
             <div class="button">
                 <input type="hidden" name="id" value="<?= $ma_khach_hang ?>">
                 <input type="submit" value="Cập nhật" name="editTk" class="input_button btn">
-                <input type="reset" value="Nhập lại">
-
-
+                <input type="reset" class="btn" value="Nhập lại">
+                <button class="btn"><a class="btn" href="index.php?target=exit">Tiếp tục</a></button>
             </div>
             <span style="color:red;">
                 <?= isset($thongbao) ? $thongbao : '' ?>

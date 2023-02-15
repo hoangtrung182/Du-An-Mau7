@@ -94,7 +94,7 @@ table {
 	color: #000;
 	font-size: 20px;
 	text-align: center;
-
+	height: 100px;
 }
 
 /*th:nth-child(1) {
@@ -126,18 +126,6 @@ table {
 	color: black;
 }
 
-.btn_delete {
-	background-color: red;
-	color: white;
-	/* border: none; */
-	padding: 5px 10px;
-	border-radius: 5px;
-}
-
-.btn_edit {
-	padding: 5px 15px;
-	border-radius: 5px;
-}
 
 
 .notify_success {
@@ -201,14 +189,14 @@ table {
 
 .login-name,
 .login-pwd {
-	font-size: 20px;
-	color: #2b797c;
+	font-size: 22px;
+	color: #107e97`;
 	margin: 8px 0;
 }
 
 input[type="text"],
 input[type="password"] {
-	height: 25px;
+	height: 30px;
 	padding-left: 5px;
 }
 
@@ -217,19 +205,7 @@ input[type="password"] {
 	padding-left: 5px;
 }
 
-input[type="checkbox"] {
-	margin: 15px 5px 20px 0;
-}
 
-input[type="submit"] {
-	height: 25px;
-	width: 100px;
-	color: #fff;
-	background-color: #ff6b02;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
 
 .login-menu li a {
 	color: #000;
@@ -289,6 +265,9 @@ input[type="submit"] {
 	text-decoration: none;
 }
 
+.top-item_title a:hover {
+	opacity: .6;
+}
 
 /*====== Product Detail======*/
 .product-info {}
@@ -329,6 +308,10 @@ input[type="submit"] {
 
 .name_product {
 	font-weight: bold;
+}
+
+.list-product__same li a{
+	color: #ff6b02;
 }
 
 .box {
@@ -406,6 +389,9 @@ h2 {
 .type_name {
 	width: 100px;
 }
+#rowAll {
+	height: 150px;
+}
 
 .main {
 	max-width: 100%;
@@ -458,11 +444,6 @@ p {
 
 }
 
-button {
-	height: 30px;
-	width: 90px;
-}
-
 .option_dm {
 	width: 50px;
 	padding: 10px;
@@ -477,27 +458,6 @@ button {
 	padding-left: 10px;
 }
 
-.btn {
-	width: 90px;
-	border-radius: 5px;
-}
-
-.btn_delete {
-	background-color: red;
-	color: white;
-	/* border: none; */
-	padding: 5px 10px;
-	border-radius: 5px;
-	margin: auto;
-	border: 1px solid #ddd;
-}
-
-.btn_edit {
-	padding: 5px 15px;
-	margin: auto;
-	border-radius: 5px;
-	border: 1px solid #ddd;
-}
 
 .select-product {
 	height: 31px;
@@ -513,6 +473,8 @@ button {
 	border-radius: 4px;
 	cursor: pointer;
 }
+
+/*========== COmments===========*/
 
 .binhluan table {
 	width: 100%;
@@ -530,4 +492,67 @@ button {
 
 .binhluan table td:nth-child(3) {
 	width: 30%;
+}
+
+.comment-area {
+	font-size: 16px;
+}
+
+.comments-list__menu {
+
+}
+
+.list-comment {
+	width: 100%;
+	border: 1px solid #000;
+	list-style: none;
+	margin: 10px 0;
+	padding: 5px;
+}
+
+.list-comment ul {
+	list-style: none;
+}
+
+.list-comment ul li {
+	/*margin: 10px 0;*/
+}
+
+.row-in-comment {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	justify-content: space-between;
+}
+.row-in-comment p {
+	font-size: 16px;
+}
+
+.comment-name {
+	margin: 0;
+}
+
+
+
+/*==========Profile information=========*/
+.profile-title {
+	font-size: 22px;
+	color: #602d2d;
+	font-weight: bold;
+}
+.profile-list {
+	padding-left: 0;
+	list-style: none;
+}
+
+.profile-list li {
+	color: #173281;
+	margin: 5px 0;
+}
+/*===========End Profile========= */
+
+
+#id_mota {
+	height: 50px;
+	width: 100px;
+	overflow: auto;
 }

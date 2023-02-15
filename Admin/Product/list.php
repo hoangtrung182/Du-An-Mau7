@@ -23,7 +23,7 @@
 				</option>
 			<?php } ?>
 		</select>
-		<input type="submit" id="btn-submit_product" value="Search" name="listok">
+		<input type="submit" id="btn-submit_product" class="btn" value="Search" name="listok">
 	</form>
 	<?php
 	$thongbao = isset($thongbao) ? $thongbao : '';
@@ -61,15 +61,8 @@
 			extract($hanghoa);
 			$editItem = "index.php?target=editItem&id=" . $ma_hanghoa;
 			$deleteItem = "index.php?target=deleteItem&id=" . $ma_hanghoa;
-			// $hinhpart="./Image/".$hinh;
-			// if(is_file($hinhpart)){
-			// 	$hinh="<img src='".$hinhpart."' height=50px;>";
-			// }else{
-			// 	$hinh="NO photo";
-			// }
-		
 			?>
-			<tr class="row1">
+			<tr id="rowAll">
 				<td><input type="checkbox" name=""></td>
 				<td>
 					<?= $ma_hanghoa ?>
@@ -83,11 +76,11 @@
 				<td>
 					<?= $giam_gia ?>
 				</td>
-				<td><img src="<?= $hinh ?>" style="width: 200px"></td>
+				<td><img src="<?= $hinh ?>" style="width: 150px; height: 150px"></td>
 				<td>
 					<?= $ngay_nhap ?>
 				</td>
-				<td>
+				<td id="id_mota">
 					<?= $mo_ta ?>
 				</td>
 				<td>
@@ -111,8 +104,8 @@
 		<?php } ?>
 	</table>
 	</table>
-	<button class="input_submit btn">
-		<a href="index.php?target=addmoveItems">ADD NEW</a>
+	<button class="btn">
+		<a  href="index.php?target=addmoveItems">ADD NEW</a>
 	</button>
 </body>
 

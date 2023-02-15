@@ -9,8 +9,6 @@ include './model/khachhang.php';
 include './model/taikhoan.php';
 
 
-
-
 $listbody = select_items_body();
 $load_nameitem = select_cate();
 $list_top10 = select_product_top10();
@@ -47,23 +45,22 @@ if (isset($_GET['target'])) {
 				$ten_kh = $_POST['name'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
-				$password_mahoa = password_hash($password, PASSWORD_BCRYPT);
-				insert_khachhang($ten_kh, $email, $password_mahoa);
+				// $password_mahoa = password_hash($password, PASSWORD_BCRYPT);
+				insert_khachhang($ten_kh, $email, $password);
 				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản để sử dụng dịch vụ!";
 			}
 			include './taikhoan/dangky.php';
 			break;
 		case 'dangnhap':
-
 			if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
-				$ten_kh = $_POST['name'];
+				$gmailUser = $_POST['email'];
 				$pass = $_POST['pass'];
-				$check_user = check_khachhang($ten_kh, $pass);
-				if (is_array($check_user)) {
+				$check_user = check_khachhang($gmailUser, $pass);
+				if (is_array($check_user))  {
 					$_SESSION['user'] = $check_user;
-					header('location:index.php');
-					//$thongbao = 'Đăng nhập thành công';
-					//include './view/body.php';
+					$thongbao = 'Đăng nhập thành công';
+					// header('location:index.php');
+					include './view/body.php';
 				} else {
 					$thongbao = 'Người dùng không tồn tại';
 					include './view/body.php';
@@ -72,7 +69,12 @@ if (isset($_GET['target'])) {
 			}
 			include './taikhoan/dangky.php';
 			break;
+		case 'editUser':
+			$listtaikhoan = load_taikhoan();
+			include './taikhoan/edit.php';
+			break;
 		case 'editTk':
+			// include './taikhoan/edit.php';
 			if (isset($_POST['editTk']) && $_POST['editTk']) {
 				$id = $_POST['id'];
 				$name = $_POST['name'];
@@ -96,12 +98,15 @@ if (isset($_GET['target'])) {
 				}
 
 				update_Tk($id, $name, $email, $password, $save_url, $phone, $diachi);
-				$_SESSION['user'] = check_khachhang($name, $password);
+				$_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
+				// header('location:index.php');
+				include './view/body.php';	
 			}
-			$listtaikhoan = load_taikhoan();
+			// $listtaikhoan = load_taikhoan();
 			//include './khachhang/list.php';
-			include './taikhoan/edit.php';
+			// include './taikhoan/edit.php';
+			// include './view/body.php';
 			break;
 		case 'quenMk':
 			if (isset($_POST['quenMk']) && $_POST['quenMk']) {
@@ -116,7 +121,7 @@ if (isset($_GET['target'])) {
 			}
 			include './taikhoan/quenMk.php';
 			break;
-		case 'thoat':
+		case 'exit':
 			session_unset();
 			header('location:index.php');
 			break;
