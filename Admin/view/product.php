@@ -8,6 +8,7 @@
     <title>Loc San pham</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="body_main">
         <div class="left">
@@ -43,43 +44,10 @@
 
             </div>
         </div>
-        <div class="right">
-            <div class="box">
-                <h3>TÀI KHOẢN</h3>
-            </div>
-            <div class="box">
-                <h3>DANH MỤC</h3>
-                <?php
-                foreach ($load_nameitem as $products) {
-                    extract($products);
-                    $link_product = "index.php?target=product&id=" . $ma_loai;
-                    echo '<li><a href="' . $link_product . '">' . $ten_loai . '</li>';
-                } ?>
-            </div>
-            <div class="box">
-                <div>
-                    <?php
-                    foreach ($list_top10 as $hanghoa) {
-                        extract($hanghoa); ?>
-                        <div class="box1">
-
-                            <div class="">
-                                <a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
-                                    <img class="img_top" src="<?= $hinh ?>" alt="">
-                                </a>
-                            </div>
-                            <div class="main-info">
-                                <h3 class="main-title">
-                                    <a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
-                                        <?= $ten_hanghoa ?>
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
+        <div class="sidebar">
+            <?php include './view/box_right.php'; ?>
         </div>
+
     </div>
 </body>
 

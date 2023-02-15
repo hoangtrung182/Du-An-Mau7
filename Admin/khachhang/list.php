@@ -15,15 +15,22 @@
     $thongbao_xoa = isset($thongbao_delete) ? $thongbao_delete : '';
     $thongbao_sua = isset($thongbao_update) ? $thongbao_update : '';
     ?>
-    <p class=""><?= $thongbao ?></p>
-    <p class=""><?= $thongbao_xoa ?></p>
-    <p class=""><?= $thongbao_sua ?></p>
+    <p class="">
+        <?= $thongbao ?>
+    </p>
+    <p class="">
+        <?= $thongbao_xoa ?>
+    </p>
+    <p class="">
+        <?= $thongbao_sua ?>
+    </p>
+    <h2>Danh sách tài khoản</h2>
     <table border="1" cellspacing="0">
         <tr class="row">
             <th class="type"></th>
             <th class="type">Mã khách hàng</th>
             <th class="type">Tên đăng nhập</th>
-            <th class="type">Mật khẩu</th>
+            <!-- //<th class="type">Mật khẩu</th> -->
             <th class="type">Email</th>
             <th class="type">Địa chỉ</th>
             <th class="type">Số điện thoại</th>
@@ -35,18 +42,31 @@
         <?php
         foreach ($listtaikhoan as $taikhoan) {
             extract($taikhoan);
-            $editUser = "index.php?target=editUser&id=" . $user_id;
-            $deleteUser = "index.php?target=deleteUser&id=" . $user_id;
-        ?>
+            $editUser = "index.php?target=editUser&id=" . $ma_khach_hang;
+            $deleteUser = "index.php?target=deleteUser&id=" . $ma_khach_hang;
+            ?>
             <tr class="row1">
                 <td><input type="checkbox" name=""></td>
-                <td><?= $user_id ?></td>
-                <td><?= $user_name ?></td>
-                <td><?= $password ?></td>
-                <td><?= $email ?></td>
-                <td><?= $address ?></td>
-                <td><?= $phone_num ?></td>
-                <td><?= $role ?></td>
+                <td>
+                    <?= $ma_khach_hang ?>
+                </td>
+                <td>
+                    <?= $ten_khach_hang ?>
+                </td>
+
+                <td>
+                    <?= $email ?>
+                </td>
+
+                <td>
+                    <?= $so_dien_thoai ?>
+                </td>
+                <td>
+                    <?= $dia_chi ?>
+                </td>
+                <td>
+                    <?= $vai_tro ?>
+                </td>
                 <td>
                     <a href="<?= $editUser ?>">
                         <input type="button" value="Edit" class="btn btn_edit">
@@ -58,10 +78,12 @@
                     </a>
                 </td>
             </tr>
-        <?php    }     ?>
+        <?php } ?>
     </table>
     </table>
-
+    <button class="input_submit btn">
+        <a href="index.php?target=addmoveItems">ADD NEW</a>
+    </button>
 </body>
 
 </html>
