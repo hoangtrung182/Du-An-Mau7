@@ -2,14 +2,15 @@ html {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: 'Inter', sans-serif;
 }
-
 
 .container {
 	width: 1300px;
 	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
+	background-color: #f5f5f5;
 }
 
 .header {
@@ -162,8 +163,12 @@ table {
 	text-align: center;
 }
 
+.main-title {
+	margin: 0 0 10px 10px;
+}
+
 .main-title a {
-	color: #000;
+	color: #bf3e3e;
 	text-decoration: none;
 }
 
@@ -171,15 +176,146 @@ table {
 	text-decoration: underline;
 }
 
+.main-price {
+	margin-left: 10px;
+}
+
 .body_main {
 	display: grid;
-	gap: 20px;
+	grid-gap: 20px;
 	grid-template-columns: 2fr 1fr;
 }
 
+.body_mainct {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 3fr 1fr;
+}
+
+/*======== Form Login ========*/
+
+.login-title {
+	font-size: 26px;
+	margin: 10px;
+}
+
+.login-name,
+.login-pwd {
+	font-size: 20px;
+	color: #2b797c;
+	margin: 8px 0;
+}
+
+input[type="text"],
+input[type="password"] {
+	height: 25px;
+	padding-left: 5px;
+}
+
+#filter-input {
+	height: 30px;
+	padding-left: 5px;
+}
+
+input[type="checkbox"] {
+	margin: 15px 5px 20px 0;
+}
+
+input[type="submit"] {
+	height: 25px;
+	width: 100px;
+	color: #fff;
+	background-color: #ff6b02;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.login-menu li a {
+	color: #000;
+	text-decoration: none;
+}
+
+.login-menu li a:hover {
+	text-decoration: underline;
+}
 
 
+/*======== Danh Muc ==========*/
+.cate-title {
+	font-size: 26px;
+	margin: 10px;
+}
 
+.cate-menu {
+	padding-left: 20px;
+}
+
+.cate-menu li a {
+	display: block;
+	color: #000;
+	font-size: 20px;
+	text-decoration: none;
+	padding: 5px 0;
+}
+
+.cate-menu li a:hover {
+	text-decoration: underline;
+	color: #2b797c;
+}
+
+/*======== Top List 10==========*/
+.top-title {
+	font-size: 20px;
+	margin: 10px;
+}
+
+.box1 {
+	display: flex;
+	align-items: center;
+}
+
+.top-image img {
+	border: 1px solid rgb(155, 80, 80);
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	border-radius: 2px;
+}
+
+.top-item_title a {
+	font-size: 18px;
+	color: #000;
+	text-decoration: none;
+}
+
+
+/*====== Product Detail======*/
+.product-info {}
+
+.product-price {
+	color: #371ec1;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.product-img {
+	text-align: center;
+}
+
+.product-img img {
+	max-width: 100%;
+	height: 200px;
+	padding: 10px 5px;
+}
+
+.product-desc p {
+	font-size: 17px;
+	line-height: 24px;
+	margin: 10px 20px;
+}
 
 .item {
 	border: 1px solid gray;
@@ -199,23 +335,21 @@ table {
 	border: 1px solid gray;
 	padding: 5px 10px;
 	margin-bottom: 10px;
-
+	border-radius: 4px;
 }
 
 
 .main-image {
 	width: 200px;
-	height: 100%;
+	/*height: 100%;*/
+	height: 200px;
 }
 
-.img_product {
-	width: 100%;
-	height: 150px;
-	padding: 10px 0px;
-}
 
 .main-type {
-	font-size: 20px;
+	font-size: 18px;
+	color: #8e50bd;
+	text-align: center;
 }
 
 .row_product {
@@ -228,7 +362,8 @@ table {
 	font-size: 20px;
 	font-weight: bold;
 	padding: 5px;
-	background-color: gray;
+	background-color: #b5b5b5;
+	color: #fff;
 }
 
 .img_row {
@@ -252,17 +387,6 @@ table {
 
 }
 
-.box1 {
-	display: flex;
-	align-items: center;
-}
-
-.img_top {
-	border: 1px solid rgb(155, 80, 80);
-	width: 50px;
-	height: 50px;
-	margin-right: 5px;
-}
 
 table {
 	border: 0.5px solid #f3eeee;
@@ -373,4 +497,37 @@ button {
 	margin: auto;
 	border-radius: 5px;
 	border: 1px solid #ddd;
+}
+
+.select-product {
+	height: 31px;
+	width: 100px;
+}
+
+#btn-submit_product {
+	height: 31px;
+	width: 70px;
+	color: #fff;
+	background-color: #ff6b02;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.binhluan table {
+	width: 100%;
+	margin-left: 5%;
+
+}
+
+.binhluan table td:nth-child(1) {
+	width: 50%;
+}
+
+.binhluan table td:nth-child(2) {
+	width: 20%;
+}
+
+.binhluan table td:nth-child(3) {
+	width: 30%;
 }

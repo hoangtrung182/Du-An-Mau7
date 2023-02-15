@@ -38,8 +38,6 @@ function loadname_item($id)
 		$dm = pdo_query_one($sql);
 		extract($dm);
 		return $ten_loai;
-	} else {
-		return "";
 	}
 }
 

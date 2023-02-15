@@ -1,8 +1,10 @@
 <?php
 include '../model/pdo.php';
 include '../model/binhluan.php';
+include '../model/khachhang.php';
 session_start();
 $idpro = $_REQUEST['idpro'];
+$list_bl = select_comments($idpro);
 
 ?>
 
@@ -21,9 +23,20 @@ $idpro = $_REQUEST['idpro'];
 <body>
     <div class="box">
         <h3>BÌNH LUẬN</h3>
-        <?php
-        echo "Bình luận:" . $idpro;
-        ?>
+        <div class="binhluan">
+            <table>
+                <?php
+                foreach ($list_bl as $bl) {
+                    extract($bl);
+                    echo '<tr><td> ' . $noi_dung . '</td>';
+                    echo '<td> ' . $ma_khach_hang . '</td>';
+                    echo '<td> ' . $khoang_thoi_gian . '</td></tr>';
+
+                }
+                ?>
+            </table>
+        </div>
+
         <br>
         <div>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
@@ -37,10 +50,11 @@ $idpro = $_REQUEST['idpro'];
         if (isset($_POST['btnComment']) && $_POST['btnComment']) {
             $iddrop = $_POST['idpro'];
             $noi_dung = $_POST['mess'];
-            $ma_khach_hang = $_SESSION['ten_khach_hang']['id'];
+            $ma_khach_hang = $_SESSION['user']['ma_khach_hang'];
             $khoang_thoi_gian = date('h:i:sa d/m/Y');
 
             insert_comments($noi_dung, $ma_khach_hang, $idpro, $khoang_thoi_gian);
+            header("Location: " . $_SERVER['HTTP_REFERER']);
         }
 
 

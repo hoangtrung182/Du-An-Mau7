@@ -1,15 +1,20 @@
 <?php
+session_start();
 include './view/header.php';
 include './model/pdo.php';
 include './model/danhmuc.php';
 include './model/hanghoa.php';
 include './model/binhluan.php';
+include './model/khachhang.php';
 include './model/taikhoan.php';
+
+
 
 
 $listbody = select_items_body();
 $load_nameitem = select_cate();
 $list_top10 = select_product_top10();
+$listtaikhoan = load_taikhoan();
 
 if (isset($_GET['target'])) {
 	$variable = $_GET['target'];
@@ -20,7 +25,6 @@ if (isset($_GET['target'])) {
 			} else {
 				$keyw = " ";
 			}
-
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
 				$id = $_GET['id'];
 			} else {
@@ -32,12 +36,10 @@ if (isset($_GET['target'])) {
 			break;
 		case 'product_ct':
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
-				$id = $_GET['id'];
-				$item = loadOne_item($id);
+				$item = loadOne_item($_GET['id']);
 				extract($item);
-				$items = load_products($id, $ma_loai);
+				$getItem = load_products($_GET['id'], $ma_loai);
 			}
-
 			include './view/product_ct.php';
 			break;
 		case 'dangky':
@@ -45,20 +47,78 @@ if (isset($_GET['target'])) {
 				$ten_kh = $_POST['name'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
-				insert_khachhang($ten_kh, $email, $password);
-				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản!";
+				$password_mahoa = password_hash($password, PASSWORD_BCRYPT);
+				insert_khachhang($ten_kh, $email, $password_mahoa);
+				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản để sử dụng dịch vụ!";
 			}
 			include './taikhoan/dangky.php';
 			break;
 		case 'dangnhap':
+
 			if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
 				$ten_kh = $_POST['name'];
-				$email = $_POST['email'];
-				$password = $_POST['password'];
-				insert_khachhang($ten_kh, $email, $password);
-				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản!";
+				$pass = $_POST['pass'];
+				$check_user = check_khachhang($ten_kh, $pass);
+				if (is_array($check_user)) {
+					$_SESSION['user'] = $check_user;
+					header('location:index.php');
+					//$thongbao = 'Đăng nhập thành công';
+					//include './view/body.php';
+				} else {
+					$thongbao = 'Người dùng không tồn tại';
+					include './view/body.php';
+					//header('location:index.php');
+				}
 			}
 			include './taikhoan/dangky.php';
+			break;
+		case 'editTk':
+			if (isset($_POST['editTk']) && $_POST['editTk']) {
+				$id = $_POST['id'];
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+				$phone = $_POST['phone'];
+				$diachi = $_POST['diachi'];
+
+				$anh_dai_dien = isset($_FILES['hinh']) ? $_FILES['hinh'] : '';
+				$save_url = '';
+				if ($anh_dai_dien['size'] > 0 && $anh_dai_dien['size'] < 500000) {
+					$photo_folder = 'Image/';
+					$photo_file = uniqid() . $anh_dai_dien['name'];
+
+					$file_se_luu = $anh_dai_dien['tmp_name'];
+					$url = $photo_folder . $photo_file;
+
+					if (move_uploaded_file($file_se_luu, $url)) {
+						$save_url = $url;
+					}
+				}
+
+				update_Tk($id, $name, $email, $password, $save_url, $phone, $diachi);
+				$_SESSION['user'] = check_khachhang($name, $password);
+				$thongbao = "Chỉnh sửa tài khoản thành công!";
+			}
+			$listtaikhoan = load_taikhoan();
+			//include './khachhang/list.php';
+			include './taikhoan/edit.php';
+			break;
+		case 'quenMk':
+			if (isset($_POST['quenMk']) && $_POST['quenMk']) {
+				$email = $_POST['email'];
+
+				$check_email = check_Mk($email);
+				if (is_array($check_email)) {
+					$thongbao = "Mật khẩu của bạn là: " . $check_email['password'];
+				} else {
+					$thongbao = "Email không tồn tại!";
+				}
+			}
+			include './taikhoan/quenMk.php';
+			break;
+		case 'thoat':
+			session_unset();
+			header('location:index.php');
 			break;
 		case 'addmoveCate':
 			include './Danhmuc/add.php';
@@ -105,6 +165,10 @@ if (isset($_GET['target'])) {
 		case 'addmoveItems':
 			$listCates = select_cate();
 			include './Product/add.php';
+			break;
+		case 'addkh':
+			$listtaikhoan = load_taikhoan();
+			include './khachhang/list.php';
 			break;
 		case 'addItems':
 			if (isset($_POST['addNewItem']) && $_POST['addNewItem']) {
@@ -234,12 +298,16 @@ if (isset($_GET['target'])) {
 			$listBinhluan = select_comments();
 			include './binhluan/list.php';
 			break;
+		case 'listUsers':
+			include './khachhang/list.php';
+			break;
 		default:
 			// $listItems = select_items();
-			include './view/body.php';
+			//include './view/body.php';
 			break;
 	}
 } else {
+	$listCates = select_cate();
 	$listItems = select_items();
 	include './view/body.php';
 	// break;

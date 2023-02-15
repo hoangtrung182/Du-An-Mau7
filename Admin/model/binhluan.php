@@ -1,7 +1,7 @@
 <?php
-function select_comments()
+function select_comments($id)
 {
-    $sql = "SELECT * FROM binhluan order by ma_binh_luan";
+    $sql = "SELECT * FROM binhluan WHERE ma_hang_hoa='$id' order by ma_binh_luan";
     $listComment = pdo_query($sql);
     return $listComment;
 }
@@ -10,6 +10,7 @@ function insert_comments($noi_dung, $ma_khach_hang, $ma_hang_hoa, $khoang_thoi_g
 {
     $sql = "INSERT INTO binhluan(noi_dung, ma_khach_hang, ma_hang_hoa, khoang_thoi_gian) VALUES ('$noi_dung', '$ma_khach_hang', '$ma_hang_hoa', '$khoang_thoi_gian')";
     pdo_execute($sql);
+
 }
 
 function update_comment($id, $noidung, $khoangthoigian)
