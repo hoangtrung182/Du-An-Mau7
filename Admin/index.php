@@ -11,12 +11,9 @@ include './model/cart.php';
 
 if (!isset($_SESSION['cart'])) {
 
-<<<<<<< HEAD
 	$_SESSION['cart'] = [];
 }
 
-=======
->>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 $listbody = select_items_body();
 $load_nameitem = select_cate();
 $list_top10 = select_product_top10();
@@ -53,11 +50,7 @@ if (isset($_GET['target'])) {
 				$ten_kh = $_POST['name'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
-<<<<<<< HEAD
 				//$password_mahoa = password_hash($password, PASSWORD_BCRYPT);
-=======
-				// $password_mahoa = password_hash($password, PASSWORD_BCRYPT);
->>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 				insert_khachhang($ten_kh, $email, $password);
 				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản để sử dụng dịch vụ!";
 			}
@@ -68,7 +61,7 @@ if (isset($_GET['target'])) {
 				$gmailUser = $_POST['email'];
 				$pass = $_POST['pass'];
 				$check_user = check_khachhang($gmailUser, $pass);
-				if (is_array($check_user))  {
+				if (is_array($check_user)) {
 					$_SESSION['user'] = $check_user;
 					$thongbao = 'Đăng nhập thành công';
 					// header('location:index.php');
@@ -113,7 +106,7 @@ if (isset($_GET['target'])) {
 				$_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
 				// header('location:index.php');
-				include './view/body.php';	
+				include './view/body.php';
 			}
 			break;
 		case 'quenMk':
@@ -431,13 +424,13 @@ if (isset($_GET['target'])) {
 			$listUsers = load_taikhoan();
 			include './khachhang/list.php';
 			break;
-		case 'editUser': 
+		case 'editUser':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$user = loadOne_user($_GET['id']);
 			}
 			include './khachhang/update.php';
 			break;
-		case 'editRole': 
+		case 'editRole':
 			// include './taikhoan/edit.php';
 			if (isset($_POST['editUser']) && $_POST['editUser']) {
 				$id = $_POST['id'];
@@ -467,11 +460,11 @@ if (isset($_GET['target'])) {
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
 				// header('location:index.php');
 				$listUsers = load_taikhoan();
-				include './khachhang/list.php';	
+				include './khachhang/list.php';
 			}
-			
+
 			break;
-		case 'deleteUser': 
+		case 'deleteUser':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				delete_user($_GET['id']);
 				$thongbao_xoa = "Xóa user thành công !!";
