@@ -66,7 +66,7 @@
 									<img class="main-image" src="<?= $hinh ?>" alt="">
 								</a>
 							</div>
-							<div class="main-info">
+							<div class="main-info ">
 								<h3 class="main-title">
 									<a href="./index.php?target=product_ct&id=<?= $ma_hanghoa ?> ">
 										<?= $ten_hanghoa ?>
@@ -75,6 +75,15 @@
 								<span class="main-price">
 									<?= $don_gia ?> $
 								</span>
+							</div>
+							<div>
+								<form action="index.php?target=addtoCart" method="post">
+									<input type="hidden" name="id" value="<?= $ma_hanghoa ?>">
+									<input type="hidden" name="name" value="<?= $ten_hanghoa ?>">
+									<input type="hidden" name="img" value="<?= $hinh ?>">
+									<input type="hidden" name="price" value="<?= $don_gia ?>">
+									<input type="submit" name="addCart" value="Thêm vào giỏ hàng">
+								</form>
 							</div>
 						</div>
 					<?php } ?>

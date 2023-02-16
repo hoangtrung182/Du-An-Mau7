@@ -4,7 +4,7 @@ include '../model/binhluan.php';
 include '../model/khachhang.php';
 session_start();
 $idpro = $_REQUEST['idpro'];
-$list_bl = select_comments($idpro);
+$list_bl = selectList_comments($idpro);
 
 ?>
 

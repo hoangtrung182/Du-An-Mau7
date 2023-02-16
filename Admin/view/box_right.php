@@ -33,8 +33,9 @@
             <?php if ($vai_tro == 1) { ?>
                 <li><a href="index.php?target=listUsers">Đăng nhập Admin</a></li>
 
-            <?php } ?>
 
+            <?php } ?>
+            <li><a href="index.php?target=mybill">Đơn hàng của tôi</a></li>
             <li><a href="index.php?target=editTk">Cập nhật tài khoản</a></li>
             <li><a href="index.php?target=thoat">Thoát</a></li>
         </ul>

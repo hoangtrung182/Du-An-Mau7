@@ -1,7 +1,13 @@
 <?php
-function select_comments($id)
+function selectList_comments($id)
 {
     $sql = "SELECT * FROM binhluan WHERE ma_hang_hoa='$id' order by ma_binh_luan";
+    $listComment = pdo_query($sql);
+    return $listComment;
+}
+function select_comments()
+{
+    $sql = "SELECT * FROM binhluan order by ma_binh_luan";
     $listComment = pdo_query($sql);
     return $listComment;
 }
