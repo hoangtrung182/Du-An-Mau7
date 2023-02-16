@@ -12,6 +12,7 @@
 		<th class="type">IdUser</th>
 		<th class="type">IdProduct</th>
 		<th class="type">Thời gian</th>
+		<th colspan="2" class="type">Chức năng</th>
 	</tr>
 	<?php
 		foreach($listBinhluan as $binhluan) {

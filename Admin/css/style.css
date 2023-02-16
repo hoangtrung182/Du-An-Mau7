@@ -14,9 +14,14 @@ html {
 }
 
 .header {
-	font-size: 60px;
-	color: #000;
-	background-color: #ddd;
+    font-size: 60px;
+    color: #000;
+    text-align: center;
+    color: #b32828;
+    background-color: #7ecdcd;
+    text-shadow: 4px 5px #4ef1f1;
+    font-weight: bold;
+
 }
 
 .navbar {
@@ -79,7 +84,16 @@ html {
 
 table {
 	border: 0.5px solid #f3eeee;
+	width: 70%;
+	margin: auto;
+}
+.table {
+	border: 0.5px solid #f3eeee;
 	width: 100%;
+}
+
+.ml-180 {
+	margin-left: 180px;
 }
 
 
@@ -94,7 +108,7 @@ table {
 	color: #000;
 	font-size: 20px;
 	text-align: center;
-
+	/*height: 100px;*/
 }
 
 /*th:nth-child(1) {
@@ -126,18 +140,6 @@ table {
 	color: black;
 }
 
-.btn_delete {
-	background-color: red;
-	color: white;
-	/* border: none; */
-	padding: 5px 10px;
-	border-radius: 5px;
-}
-
-.btn_edit {
-	padding: 5px 15px;
-	border-radius: 5px;
-}
 
 
 .notify_success {
@@ -202,19 +204,19 @@ table {
 
 .login-title {
 	font-size: 26px;
-	margin: 10px;
+	margin: 15px;
 }
 
 .login-name,
 .login-pwd {
 	font-size: 20px;
-	color: #2b797c;
+	color: #107e97`;
 	margin: 8px 0;
 }
 
 input[type="text"],
 input[type="password"] {
-	height: 25px;
+	height: 30px;
 	padding-left: 5px;
 }
 
@@ -223,18 +225,8 @@ input[type="password"] {
 	padding-left: 5px;
 }
 
-input[type="checkbox"] {
-	margin: 15px 5px 20px 0;
-}
-
-input[type="submit"] {
-	height: 25px;
-	width: 100px;
-	color: #fff;
-	background-color: #ff6b02;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
+.login-menu li {
+	margin: 7px 0;
 }
 
 .login-menu li a {
@@ -295,11 +287,21 @@ input[type="submit"] {
 	text-decoration: none;
 }
 
+.top-item_title a:hover {
+	opacity: .6;
+}
 
 /*====== Product Detail======*/
+<<<<<<< HEAD
 table {
 	border: 1px solid gray;
 }
+=======
+.product {
+	margin-top: 30px;
+}
+.product-info {}
+>>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 
 .product-price {
 	color: #371ec1;
@@ -337,6 +339,10 @@ table {
 
 .name_product {
 	font-weight: bold;
+}
+
+.list-product__same li a{
+	color: #ff6b02;
 }
 
 .box {
@@ -397,7 +403,7 @@ table {
 
 
 table {
-	border: 0.5px solid #f3eeee;
+	border: 0.5px dashed #f3eeee;
 }
 
 h2 {
@@ -413,6 +419,11 @@ h2 {
 
 .type_name {
 	width: 100px;
+}
+.rowAll {
+	min-height: 100px;
+	max-height: 200px;
+	overflow: hidden;
 }
 
 .main {
@@ -466,11 +477,6 @@ p {
 
 }
 
-button {
-	height: 30px;
-	width: 90px;
-}
-
 .option_dm {
 	width: 50px;
 	padding: 10px;
@@ -485,27 +491,6 @@ button {
 	padding-left: 10px;
 }
 
-.btn {
-	width: 90px;
-	border-radius: 5px;
-}
-
-.btn_delete {
-	background-color: red;
-	color: white;
-	/* border: none; */
-	padding: 5px 10px;
-	border-radius: 5px;
-	margin: auto;
-	border: 1px solid #ddd;
-}
-
-.btn_edit {
-	padding: 5px 15px;
-	margin: auto;
-	border-radius: 5px;
-	border: 1px solid #ddd;
-}
 
 .select-product {
 	height: 31px;
@@ -521,6 +506,8 @@ button {
 	border-radius: 4px;
 	cursor: pointer;
 }
+
+/*========== COmments===========*/
 
 .binhluan table {
 	width: 100%;
@@ -538,4 +525,67 @@ button {
 
 .binhluan table td:nth-child(3) {
 	width: 30%;
+}
+
+.comment-area {
+	font-size: 16px;
+}
+
+.comments-list__menu {
+
+}
+
+.list-comment {
+	width: 100%;
+	border: 1px solid #000;
+	list-style: none;
+	margin: 10px 0;
+	padding: 5px;
+}
+
+.list-comment ul {
+	list-style: none;
+}
+
+.list-comment ul li {
+	/*margin: 10px 0;*/
+}
+
+.row-in-comment {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	justify-content: space-between;
+}
+.row-in-comment p {
+	font-size: 16px;
+}
+
+.comment-name {
+	margin: 0;
+}
+
+
+
+/*==========Profile information=========*/
+.profile-title {
+	font-size: 22px;
+	color: #602d2d;
+	font-weight: bold;
+}
+.profile-list {
+	padding-left: 15px;
+	list-style-type: circle;
+}
+
+.profile-list li {
+	color: #0d0a38;
+	margin: 7px 0;
+}
+/*===========End Profile========= */
+
+
+#id_mota {
+	height: 50px;
+	width: 100px;
+	overflow: auto;
 }

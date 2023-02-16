@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>List San Pham</title>
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/button.css">
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 				</option>
 			<?php } ?>
 		</select>
-		<input type="submit" id="btn-submit_product" value="Search" name="listok">
+		<input type="submit" id="btn-submit_product" class="btn" value="Search" name="listok">
 	</form>
 	<?php
 	$thongbao = isset($thongbao) ? $thongbao : '';
@@ -40,7 +41,7 @@
 		<?= $thongbao_sua ?>
 	</p>
 
-	<table border="1" cellspacing="0">
+	<table class="table" border="1" cellspacing="0">
 		<tr class="row">
 			<th class="type"></th>
 			<th class="type">id</th>
@@ -61,15 +62,8 @@
 			extract($hanghoa);
 			$editItem = "index.php?target=editItem&id=" . $ma_hanghoa;
 			$deleteItem = "index.php?target=deleteItem&id=" . $ma_hanghoa;
-			// $hinhpart="./Image/".$hinh;
-			// if(is_file($hinhpart)){
-			// 	$hinh="<img src='".$hinhpart."' height=50px;>";
-			// }else{
-			// 	$hinh="NO photo";
-			// }
-		
 			?>
-			<tr class="row1">
+			<tr class="rowAll">
 				<td><input type="checkbox" name=""></td>
 				<td>
 					<?= $ma_hanghoa ?>
@@ -83,12 +77,14 @@
 				<td>
 					<?= $giam_gia ?>
 				</td>
-				<td><img src="<?= $hinh ?>" style="width: 200px"></td>
+				<td><img src="<?= $hinh ?>" style="width: 150px; height: 150px"></td>
 				<td>
 					<?= $ngay_nhap ?>
 				</td>
 				<td>
-					<?= $mo_ta ?>
+					<p>
+						<?= $mo_ta ?>
+					</p>
 				</td>
 				<td>
 					<?= $so_luot_xem ?>
@@ -111,8 +107,8 @@
 		<?php } ?>
 	</table>
 	</table>
-	<button class="input_submit btn">
-		<a href="index.php?target=addmoveItems">ADD NEW</a>
+	<button class="btn">
+		<a  href="index.php?target=addmoveItems">ADD NEW</a>
 	</button>
 </body>
 

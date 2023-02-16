@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/slideshow.css">
+	<link rel="stylesheet" href="./css/button.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -16,7 +17,7 @@
 
 <body>
 	<div class="container">
-		<header class="header">ADMIN</header>
+		<header class="header">Welcome to Xshop7</header>
 		<section class="navbar">
 			<ul class="navbar-menu">
 				<li><a href="index.php">Trang Chủ</a></li>

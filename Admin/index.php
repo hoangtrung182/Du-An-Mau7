@@ -11,9 +11,12 @@ include './model/cart.php';
 
 if (!isset($_SESSION['cart'])) {
 
+<<<<<<< HEAD
 	$_SESSION['cart'] = [];
 }
 
+=======
+>>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 $listbody = select_items_body();
 $load_nameitem = select_cate();
 $list_top10 = select_product_top10();
@@ -50,32 +53,39 @@ if (isset($_GET['target'])) {
 				$ten_kh = $_POST['name'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
+<<<<<<< HEAD
 				//$password_mahoa = password_hash($password, PASSWORD_BCRYPT);
+=======
+				// $password_mahoa = password_hash($password, PASSWORD_BCRYPT);
+>>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 				insert_khachhang($ten_kh, $email, $password);
 				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản để sử dụng dịch vụ!";
 			}
 			include './taikhoan/dangky.php';
 			break;
 		case 'dangnhap':
-
 			if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
-				$ten_kh = $_POST['name'];
+				$gmailUser = $_POST['email'];
 				$pass = $_POST['pass'];
-				$check_user = check_khachhang($ten_kh, $pass);
-				if (is_array($check_user)) {
+				$check_user = check_khachhang($gmailUser, $pass);
+				if (is_array($check_user))  {
 					$_SESSION['user'] = $check_user;
-					header('location:index.php');
-					//$thongbao = 'Đăng nhập thành công';
-					//include './view/body.php';
+					$thongbao = 'Đăng nhập thành công';
+					// header('location:index.php');
+					include './view/body.php';
 				} else {
 					$thongbao = 'Người dùng không tồn tại';
 					include './view/body.php';
 					//header('location:index.php');
 				}
 			}
-			include './taikhoan/dangky.php';
+			break;
+		case 'updateUser':
+			$listtaikhoan = load_taikhoan();
+			include './taikhoan/edit.php';
 			break;
 		case 'editTk':
+			// include './taikhoan/edit.php';
 			if (isset($_POST['editTk']) && $_POST['editTk']) {
 				$id = $_POST['id'];
 				$name = $_POST['name'];
@@ -83,6 +93,7 @@ if (isset($_GET['target'])) {
 				$password = $_POST['password'];
 				$phone = $_POST['phone'];
 				$diachi = $_POST['diachi'];
+				// $role = $_POST['role'];
 
 				$anh_dai_dien = isset($_FILES['hinh']) ? $_FILES['hinh'] : '';
 				$save_url = '';
@@ -99,12 +110,11 @@ if (isset($_GET['target'])) {
 				}
 
 				update_Tk($id, $name, $email, $password, $save_url, $phone, $diachi);
-				$_SESSION['user'] = check_khachhang($name, $password);
+				$_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
+				// header('location:index.php');
+				include './view/body.php';	
 			}
-			$listtaikhoan = load_taikhoan();
-			//include './khachhang/list.php';
-			include './taikhoan/edit.php';
 			break;
 		case 'quenMk':
 			if (isset($_POST['quenMk']) && $_POST['quenMk']) {
@@ -119,7 +129,7 @@ if (isset($_GET['target'])) {
 			}
 			include './taikhoan/quenMk.php';
 			break;
-		case 'thoat':
+		case 'exit':
 			session_unset();
 			header('location:index.php');
 			break;
@@ -384,7 +394,7 @@ if (isset($_GET['target'])) {
 			break;
 
 		case 'listbl':
-			$listBinhluan = select_comments();
+			$listBinhluan = loadAll_comment();
 			include './binhluan/list.php';
 			break;
 
@@ -394,31 +404,80 @@ if (isset($_GET['target'])) {
 				$thongbao_xoa = "Xóa thành công!";
 			}
 
-			$listComment = select_comments();
+			$listBinhluan = loadAll_comment();
 			include './binhluan/list.php';
 			break;
 		case 'editBinhluan':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$comment = loadOne_comment($_GET['id']);
 			}
-			//$comment = $comment;
 			include './binhluan/update.php';
 			break;
 		case 'editedBinhluan':
 			if (isset($_POST['updateComment']) && $_POST['updateComment']) {
 				$id = $_POST['id'];
-				$ma_binh_luan = $_POST['mabinhluan'];
+				// $ma_binh_luan = $_POST['mabinhluan'];
 				$noi_dung = $_POST['content'];
-				$ma_khach_hang = $_POST['idUser'];
-				$ma_hang_hoa = $_POST['idCate'];
+				// $ma_khach_hang = $_POST['idUser'];
+				// $ma_hang_hoa = $_POST['idCate'];
 				$khoang_thoi_gian = $_POST['time'];
 				update_comment($id, $noi_dung, $khoang_thoi_gian);
 				$thongbao = "Cập nhật danh mục thành công!";
 			}
-			$listBinhluan = select_comments();
+			$listBinhluan = loadAll_comment();
 			include './binhluan/list.php';
 			break;
 		case 'listUsers':
+			$listUsers = load_taikhoan();
+			include './khachhang/list.php';
+			break;
+		case 'editUser': 
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				$user = loadOne_user($_GET['id']);
+			}
+			include './khachhang/update.php';
+			break;
+		case 'editRole': 
+			// include './taikhoan/edit.php';
+			if (isset($_POST['editUser']) && $_POST['editUser']) {
+				$id = $_POST['id'];
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$password = $_POST['pass'];
+				$phone = $_POST['phone'];
+				$diachi = $_POST['diachi'];
+				$role = $_POST['role'];
+
+				$anh_dai_dien = isset($_FILES['hinh']) ? $_FILES['hinh'] : '';
+				$save_url = '';
+				if ($anh_dai_dien['size'] > 0 && $anh_dai_dien['size'] < 500000) {
+					$photo_folder = 'Image/';
+					$photo_file = uniqid() . $anh_dai_dien['name'];
+
+					$file_se_luu = $anh_dai_dien['tmp_name'];
+					$url = $photo_folder . $photo_file;
+
+					if (move_uploaded_file($file_se_luu, $url)) {
+						$save_url = $url;
+					}
+				}
+
+				update_user($id, $name, $email, $password, $save_url, $phone, $diachi, $role);
+				// $_SESSION['user'] = check_khachhang($email, $password);
+				$thongbao = "Chỉnh sửa tài khoản thành công!";
+				// header('location:index.php');
+				$listUsers = load_taikhoan();
+				include './khachhang/list.php';	
+			}
+			
+			break;
+		case 'deleteUser': 
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				delete_user($_GET['id']);
+				$thongbao_xoa = "Xóa user thành công !!";
+			}
+
+			$listUsers = load_taikhoan();
 			include './khachhang/list.php';
 			break;
 		default:

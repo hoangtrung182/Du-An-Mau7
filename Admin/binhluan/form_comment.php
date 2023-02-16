@@ -17,32 +17,42 @@ $list_bl = selectList_comments($idpro);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button.css">
 </head>
-
-
 <body>
     <div class="box">
         <h3>BÌNH LUẬN</h3>
         <div class="binhluan">
-            <table>
+            <ul class="comments-list__menu">
                 <?php
-                foreach ($list_bl as $bl) {
-                    extract($bl);
-                    echo '<tr><td> ' . $noi_dung . '</td>';
-                    echo '<td> ' . $ma_khach_hang . '</td>';
-                    echo '<td> ' . $khoang_thoi_gian . '</td></tr>';
-
-                }
+                foreach ($list_bl as $bl) {  extract($bl);
+                    ?>
+                    <?php
+                        $user = loadOne_user($ma_khach_hang);
+                        extract($user);
+                    ?>
+                    <li class="list-comment">
+                        <ul>
+                            <li><h4 class="comment-name"><?= $ten_khach_hang ?></h4></li>
+                            <li>
+                                <div class="row-in-comment">
+                                    <p><?= $noi_dung ?></p>
+                                    <p><?= $khoang_thoi_gian ?></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } 
                 ?>
-            </table>
+            </ul>
         </div>
 
         <br>
         <div>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <input type="text" name="idpro" hidden value="<?= $idpro ?>">
-                <input type="text" name="mess" id="">
-                <input type="submit" value="Gửi bình luận" name="btnComment">
+                <textarea class="comment-area" cols="100" rows="4" placeholder="..comment..." name="mess"></textarea>
+                <input type="submit" class="btn" value="Gửi bình luận" name="btnComment">
 
             </form>
         </div>
@@ -55,10 +65,7 @@ $list_bl = selectList_comments($idpro);
 
             insert_comments($noi_dung, $ma_khach_hang, $idpro, $khoang_thoi_gian);
             header("Location: " . $_SERVER['HTTP_REFERER']);
-        }
-
-
-        ?>
+        } ?>
     </div>
 </body>
 

@@ -25,17 +25,17 @@
 				<td><?= $ten_loai ?></td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit"  class="btn_edit">
+						<input type="button" value="Edit"  class="btn btn_edit">
 					</a>
 				</td> 
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete" class="btn_delete">
+						<input type="button" value="Delete" class="btn btn_delete">
 					</a>
 				</td>
 			</tr>
 		<?php  }  ?>
 </table>
-<button  class="input_submit btn">
-	<a href="index.php?target=addmoveCate">ADD NEW</a>
+<button  class="input_submit btn ml-180">
+	<a href="index.php?target=addmoveCate">Thêm mới</a>
 </button>

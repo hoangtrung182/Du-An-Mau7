@@ -5,19 +5,38 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Slide SHow</title>
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/slideshow.css">
+	<link rel="stylesheet" href="../css/button.css">
 </head>
-
-
 <body>
 	<div class="body_main">
 		<div class="main-content">
 			<div class="slideshow">
 				<!-- Slideshow container -->
 				<div class="slideshow-container">
+				  <!-- Full-width images with number and caption text -->
+				  <div class="mySlides fade">
+				    <div class="numbertext">1 / 3</div>
+				    <img src="Image/ipbanner.jpg" style="width:100%;height: 200px">
+				    <!-- <div class="text"></div> -->
+				  </div>
 
+				  <div class="mySlides fade">
+				    <div class="numbertext">2 / 3</div>
+				    <img src="Image/iphonebanner.jpg" style="width:100%;height: 200px">
+				    <!-- <div class="text">Caption Two</div> -->
+				  </div>
+
+				  <div class="mySlides fade">
+				    <div class="numbertext">3 / 3</div>
+				    <img src="Image/laptopbanner.jpg" style="width:100%; height: 200px">
+				    <!-- <div class="text">Caption Three</div> -->
+				  </div>
+				  <!-- Next and previous buttons -->
+				  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 					<!-- Full-width images with number and caption text -->
 					<div class="mySlides fade">
 						<div class="numbertext">1 / 3</div>

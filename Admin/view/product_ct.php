@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>San pham chi tiet</title>
 	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/button.css">
 
 </head>
 
@@ -47,28 +48,25 @@
 				<script>
 					$(document).ready(function () {
 						$("#binhluan").load("./binhluan/form_comment.php", { idpro:<?= $ma_hanghoa ?>} )
-
 					});
 				</script>
 				<div>
 					<span id="binhluan"></span>
-
 				</div>
-
 			</div>
 			<!-- Other Products -->
 			<div class="row_product">
 				<div class="title_row">SẢN PHẨM CÙNG LOẠI</div>
 				<div class="cate-menu">
 					<?php
-					foreach ($getItem as $products) {
-						extract($products);
-
+					foreach ($getItem as $products) { 
+						extract($products); 
 						$link_products = "index.php?target=product_ct&id=" . $ma_hanghoa;
-						echo '<li><a href="' . $link_products . '">' . $ten_hanghoa . '</a></li>';
-
-					}
 					?>
+					<ul class="list-product__same">
+						<li><a href="<?= $link_products ?>"><?= $ten_hanghoa ?></a></li>
+					</ul>						
+				<?php	}  ?>
 				</div>
 			</div>
 		</div>
@@ -77,7 +75,6 @@
 		<div class="sidebar">
 			<?php include './view/box_right.php'; ?>
 		</div>
-
 	</div>
 </body>
 

@@ -30,11 +30,17 @@ function delete_comment($id)
     $sql = "DELETE FROM binhluan WHERE ma_binh_luan =" . $id;
     pdo_execute($sql);
 }
-
+function loadAll_comment(){
+    $sql = "SELECT * FROM binhluan order by ma_binh_luan asc";
+    $listBinhluan = pdo_query($sql);
+    return $listBinhluan;
+}
 function loadOne_comment($id)
 {
     $sql = "SELECT * FROM binhluan WHERE ma_binh_luan =" . $id;
     $comment = pdo_query_one($sql);
     return $comment;
 }
+
+
 ?>
