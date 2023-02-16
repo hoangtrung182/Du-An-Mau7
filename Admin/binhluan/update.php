@@ -2,24 +2,24 @@
 	<h2>Form chỉnh sửa bình luận</h2>
 	<?php extract($comment); ?>		
 	<form action="index.php?target=editedBinhluan" method="post">
-		<p>Mã bình luận</p>
-		<input type="text" name="mabinhluan" disabled="" 
+		<!-- <p>Mã bình luận</p>
+		<input type="text" name="mabinhluan" readonly 
 				class="input_second" 
-				placeholder="Không được thay đổi mã bình luận">
+				value="<?= $ma_binh_luan ?>"> -->
 		<p>Nội dung</p>
 		<input type="text" name="content" 
 			   class="input_second"
 			   value="<?= $noi_dung ?>">
 
-        <p>Mã khách hàng:</p>
-		<input type="text" name="idUser" 
+        <!-- <p>Mã khách hàng:</p>
+		<input readonly type="text" name="idUser" 
 			   class="input_second"
-			   value="<?= $ma_khach_hang ?>">
+			   value="<?= $ma_khach_hang ?>"> -->
 
-               <p>Mã hàng hóa</p>
-		<input type="text" name="idCate" 
+               <!-- <p>Mã hàng hóa</p>
+		<input readonly type="text" name="idCate" 
 			   class="input_second"
-			   value="<?= $ma_hang_hoa ?>">
+			   value="<?= $ma_hang_hoa ?>"> -->
 
                <p>Thời gian</p>
 		<input type="text" name="time" 
