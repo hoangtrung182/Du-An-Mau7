@@ -9,7 +9,7 @@
 
         <h3 class="login-title">Đăng Nhập</h3>
         <form action="index.php?target=dangnhap" method="post" class="form-login">
-            <p class="login-name">Tên đăng nhập</p>
+            <p class="login-name">Email đăng nhập</p>
             <input type="text" name="email" placeholder="Nhập tên tài khoản..">
             <p class="login-pwd">Mật khẩu</p>
             <input type="password" name="pass" placeholder="Nhập mật khẩu.."> <br>
@@ -24,22 +24,26 @@
     <?php } else {
         extract($_SESSION['user']);
          ?>
-        <p class="login-name">Hi, <?= $ten_khach_hang ?> !!</p>
-        <p class="profile-title">Your Profile</p>
+        <p class="login-name">Xin chào, <?= $ten_khach_hang ?> !!</p>
+        <p class="profile-title">Thông tin cá nhân</p>
         <ul class="profile-list">
-            <li>Gmail: <?= $email ?></li>
-            <li>Tele: <?= $so_dien_thoai ?></li>
-            <li>Address: <?= $dia_chi ?></li>
-            <li>Role: <?= $vai_tro ?></li>
+            <li>Gmail:  <?= $email ?></li>
+            <li>Số phone:   <?= $so_dien_thoai ?></li>
+            <li>Địa chỉ: <?= $dia_chi ?></li>
+            <li>
+            <?php 
+                if($vai_tro === 1) { ?>
+                    Tư cách: Admin
+               <?php } ?>                
+            </li>
+            <p>--------------------</p>
         </ul>
         <ul class="login-menu">
             <li><a href="index.php?target=quenMk">Quên mật khẩu</a></li>
             <?php if ($vai_tro == 1) { ?>
-                <li><a href="index.php?target=listUsers">Đăng nhập Admin</a></li>
-
+                <li><a href="index.php?target=listUsers">Quản lí người dùng</a></li>
             <?php } ?>
-
-            <li><a href="index.php?target=editUser">Cập nhật tài khoản</a></li>
+            <li><a href="index.php?target=updateUser">Cập nhật tài khoản</a></li>
             <li><a href="index.php?target=exit">Thoát</a></li>
         </ul>
     <?php } ?>

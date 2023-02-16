@@ -30,7 +30,6 @@
             <th class="type"></th>
             <th class="type">Mã khách hàng</th>
             <th class="type">Tên đăng nhập</th>
-            <!-- //<th class="type">Mật khẩu</th> -->
             <th class="type">Email</th>
             <th class="type">Địa chỉ</th>
             <th class="type">Số điện thoại</th>
@@ -40,8 +39,8 @@
         </tr>
 
         <?php
-        foreach ($listtaikhoan as $taikhoan) {
-            extract($taikhoan);
+        foreach ($listUsers as $khachhang) {
+            extract($khachhang);
             $editUser = "index.php?target=editUser&id=" . $ma_khach_hang;
             $deleteUser = "index.php?target=deleteUser&id=" . $ma_khach_hang;
             ?>
@@ -82,7 +81,7 @@
     </table>
     </table>
     <button class="input_submit btn">
-        <a href="index.php?target=addmoveItems">ADD NEW</a>
+        <a href="index.php?target=dangky">ADD NEW</a>
     </button>
 </body>
 

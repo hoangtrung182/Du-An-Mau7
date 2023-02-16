@@ -6,8 +6,7 @@ function insert_khachhang($ten_kh, $email, $pass)
     pdo_execute($sql);
 }
 
-function check_khachhang($email, $password)
-{
+function check_khachhang($email, $password) {
     $sql = "SELECT * FROM khachhang WHERE email ='$email' AND password ='$password'";
     $item = pdo_query_one($sql);
     return $item;

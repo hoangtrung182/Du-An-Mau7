@@ -67,9 +67,8 @@ if (isset($_GET['target'])) {
 					//header('location:index.php');
 				}
 			}
-			include './taikhoan/dangky.php';
 			break;
-		case 'editUser':
+		case 'updateUser':
 			$listtaikhoan = load_taikhoan();
 			include './taikhoan/edit.php';
 			break;
@@ -82,6 +81,7 @@ if (isset($_GET['target'])) {
 				$password = $_POST['password'];
 				$phone = $_POST['phone'];
 				$diachi = $_POST['diachi'];
+				// $role = $_POST['role'];
 
 				$anh_dai_dien = isset($_FILES['hinh']) ? $_FILES['hinh'] : '';
 				$save_url = '';
@@ -103,10 +103,6 @@ if (isset($_GET['target'])) {
 				// header('location:index.php');
 				include './view/body.php';	
 			}
-			// $listtaikhoan = load_taikhoan();
-			//include './khachhang/list.php';
-			// include './taikhoan/edit.php';
-			// include './view/body.php';
 			break;
 		case 'quenMk':
 			if (isset($_POST['quenMk']) && $_POST['quenMk']) {
@@ -304,6 +300,56 @@ if (isset($_GET['target'])) {
 			include './binhluan/list.php';
 			break;
 		case 'listUsers':
+			$listUsers = load_taikhoan();
+			include './khachhang/list.php';
+			break;
+		case 'editUser': 
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				$user = loadOne_user($_GET['id']);
+			}
+			include './khachhang/update.php';
+			break;
+		case 'editRole': 
+			// include './taikhoan/edit.php';
+			if (isset($_POST['editUser']) && $_POST['editUser']) {
+				$id = $_POST['id'];
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$password = $_POST['pass'];
+				$phone = $_POST['phone'];
+				$diachi = $_POST['diachi'];
+				$role = $_POST['role'];
+
+				$anh_dai_dien = isset($_FILES['hinh']) ? $_FILES['hinh'] : '';
+				$save_url = '';
+				if ($anh_dai_dien['size'] > 0 && $anh_dai_dien['size'] < 500000) {
+					$photo_folder = 'Image/';
+					$photo_file = uniqid() . $anh_dai_dien['name'];
+
+					$file_se_luu = $anh_dai_dien['tmp_name'];
+					$url = $photo_folder . $photo_file;
+
+					if (move_uploaded_file($file_se_luu, $url)) {
+						$save_url = $url;
+					}
+				}
+
+				update_user($id, $name, $email, $password, $save_url, $phone, $diachi, $role);
+				// $_SESSION['user'] = check_khachhang($email, $password);
+				$thongbao = "Chỉnh sửa tài khoản thành công!";
+				// header('location:index.php');
+				$listUsers = load_taikhoan();
+				include './khachhang/list.php';	
+			}
+			
+			break;
+		case 'deleteUser': 
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				delete_user($_GET['id']);
+				$thongbao_xoa = "Xóa user thành công !!";
+			}
+
+			$listUsers = load_taikhoan();
 			include './khachhang/list.php';
 			break;
 		default:

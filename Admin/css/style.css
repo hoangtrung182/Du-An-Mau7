@@ -14,9 +14,14 @@ html {
 }
 
 .header {
-	font-size: 60px;
-	color: #000;
-	background-color: #ddd;
+    font-size: 60px;
+    color: #000;
+    text-align: center;
+    color: #b32828;
+    background-color: #7ecdcd;
+    text-shadow: 4px 5px #4ef1f1;
+    font-weight: bold;
+
 }
 
 .navbar {
@@ -79,7 +84,16 @@ html {
 
 table {
 	border: 0.5px solid #f3eeee;
+	width: 70%;
+	margin: auto;
+}
+.table {
+	border: 0.5px solid #f3eeee;
 	width: 100%;
+}
+
+.ml-180 {
+	margin-left: 180px;
 }
 
 
@@ -94,7 +108,7 @@ table {
 	color: #000;
 	font-size: 20px;
 	text-align: center;
-	height: 100px;
+	/*height: 100px;*/
 }
 
 /*th:nth-child(1) {
@@ -184,12 +198,12 @@ table {
 
 .login-title {
 	font-size: 26px;
-	margin: 10px;
+	margin: 15px;
 }
 
 .login-name,
 .login-pwd {
-	font-size: 22px;
+	font-size: 20px;
 	color: #107e97`;
 	margin: 8px 0;
 }
@@ -205,7 +219,9 @@ input[type="password"] {
 	padding-left: 5px;
 }
 
-
+.login-menu li {
+	margin: 7px 0;
+}
 
 .login-menu li a {
 	color: #000;
@@ -270,6 +286,9 @@ input[type="password"] {
 }
 
 /*====== Product Detail======*/
+.product {
+	margin-top: 30px;
+}
 .product-info {}
 
 .product-price {
@@ -372,7 +391,7 @@ input[type="password"] {
 
 
 table {
-	border: 0.5px solid #f3eeee;
+	border: 0.5px dashed #f3eeee;
 }
 
 h2 {
@@ -389,8 +408,10 @@ h2 {
 .type_name {
 	width: 100px;
 }
-#rowAll {
-	height: 150px;
+.rowAll {
+	min-height: 100px;
+	max-height: 200px;
+	overflow: hidden;
 }
 
 .main {
@@ -540,13 +561,13 @@ p {
 	font-weight: bold;
 }
 .profile-list {
-	padding-left: 0;
-	list-style: none;
+	padding-left: 15px;
+	list-style-type: circle;
 }
 
 .profile-list li {
-	color: #173281;
-	margin: 5px 0;
+	color: #0d0a38;
+	margin: 7px 0;
 }
 /*===========End Profile========= */
 

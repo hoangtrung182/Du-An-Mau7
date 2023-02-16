@@ -17,7 +17,7 @@
 
 <body>
 	<div class="container">
-		<header class="header">ADMIN</header>
+		<header class="header">Welcome to Xshop7</header>
 		<section class="navbar">
 			<ul class="navbar-menu">
 				<li><a href="index.php">Trang Chủ</a></li>

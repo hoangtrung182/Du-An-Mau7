@@ -36,6 +36,6 @@
 			</tr>
 		<?php  }  ?>
 </table>
-<button  class="input_submit btn">
+<button  class="input_submit btn ml-180">
 	<a href="index.php?target=addmoveCate">Thêm mới</a>
 </button>

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm sản phẩm mới</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/button.css">
-</head>
 
 <body>
     <section class="main">
@@ -17,44 +6,41 @@
         if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
             extract($_SESSION['user']);
         }
+            extract($user);
         ?>
-        <form action="index.php?target=editTk" method="post" enctype="multipart/form-data">
+        <form action="index.php?target=manageUsers" method="post" enctype="multipart/form-data">
 
             <div class="text_input">
                 <p class="input_title">Tên khách hàng</p>
-                <input type="text" name="name" class="input_second" value="<?= $ten_khach_hang ?>">
+                <input type="text" name="name"  class="input_second" value="<?= $ten_khach_hang ?>">
             </div>
             <div class="text_input">
                 <p class="input_title">Email</p>
                 <input type="email" name="email" class="input_second" value="<?= $email ?>"><br>
-
             </div>
             <div class="text_input">
                 <p>Password</p>
-                <input type="password" name="password" class="input_second" value="<?= $password ?>"><br>
-
+                <input type="password" name="pass" class="input_second" value="<?= $password ?>"><br>
             </div>
             <div class="text_input">
-                <p>Hình ảnh</p>
-                <input type="file" name="hinh" class="input_second"><br>
-
+                <p>Avatar</p>
+                <input type="file" name="hinh" class="input_second" value="<?= $avatar ?>"><br>
             </div>
             <div class="text_input">
                 <p>Số điện thoại</p>
-                <input type="number" name="phone" class="input_second" value="<?= $so_dien_thoai ?>"><br>
-
+                <input type="text" name="phone" class="input_second" value="<?= $so_dien_thoai ?>"><br>
             </div>
             <div class="text_input">
                 <p>Địa chỉ</p>
                 <input type="text" name="diachi" class="input_second" value="<?= $dia_chi ?>"><br>
             </div>
-           <!--  <div class="text_input">
+            <div class="text_input">
                 <p>Vai trò</p>
                 <input type="text" name="role" class="input_second" value="<?= $vai_tro ?>"><br>
-            </div> -->
+            </div>
             <div class="button">
                 <input type="hidden" name="id" value="<?= $ma_khach_hang ?>">
-                <input type="submit" value="Cập nhật" name="editTk" class="input_button btn">
+                <input type="submit" value="Cập nhật" name="editUser" class="input_button btn">
                 <input type="reset" class="btn" value="Nhập lại">
                 <button class="btn"><a class="btn" href="index.php?target=exit">Tiếp tục</a></button>
             </div>
@@ -64,5 +50,3 @@
         </form>
     </section>
 </body>
-
-</html>

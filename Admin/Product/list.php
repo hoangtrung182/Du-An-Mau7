@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>List San Pham</title>
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/button.css">
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 		<?= $thongbao_sua ?>
 	</p>
 
-	<table border="1" cellspacing="0">
+	<table class="table" border="1" cellspacing="0">
 		<tr class="row">
 			<th class="type"></th>
 			<th class="type">id</th>
@@ -62,7 +63,7 @@
 			$editItem = "index.php?target=editItem&id=" . $ma_hanghoa;
 			$deleteItem = "index.php?target=deleteItem&id=" . $ma_hanghoa;
 			?>
-			<tr id="rowAll">
+			<tr class="rowAll">
 				<td><input type="checkbox" name=""></td>
 				<td>
 					<?= $ma_hanghoa ?>
@@ -80,8 +81,10 @@
 				<td>
 					<?= $ngay_nhap ?>
 				</td>
-				<td id="id_mota">
-					<?= $mo_ta ?>
+				<td>
+					<p>
+						<?= $mo_ta ?>
+					</p>
 				</td>
 				<td>
 					<?= $so_luot_xem ?>
