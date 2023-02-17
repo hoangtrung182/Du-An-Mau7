@@ -16,8 +16,6 @@
             <div class="row_product">
                 <div class="title_row">CẢM ƠN</div>
                 <h3>Cảm ơn bạn đã đặt hàng!</h3>
-
-
             </div>
             <?php if (isset($Bill) && is_array($Bill)) {
                 extract($Bill);

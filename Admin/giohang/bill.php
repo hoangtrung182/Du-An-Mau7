@@ -14,7 +14,6 @@
     <div class="body_mainct">
         <div class="main-content">
             <form action="index.php?target=billcomfim" method="post">
-
                 <div class="row_product">
                     <div class="title_row">THÔNG TIN ĐẶT HÀNG</div>
                     <?php

@@ -1,8 +1,8 @@
-<span class="notify_success">
-    <?= isset($thongbao) ? $thongbao : '' ?>
-</span>
-
 <div class="box">
+    <span class="notify_success">
+    <?= isset($thongbao) ? $thongbao : '' ?>
+    </span>
+
     <?php
     if (!isset($_SESSION['user'])) {
         ?>
@@ -36,7 +36,7 @@
                     Tư cách: Admin
                <?php } ?>                
             </li>
-            <p>--------------------</p>
+            <p>---------------</p>
         </ul>
         <ul class="login-menu">
             <li><a href="index.php?target=quenMk">Quên mật khẩu</a></li>
@@ -47,7 +47,7 @@
             <?php } ?>
             <li><a href="index.php?target=mybill">Đơn hàng của tôi</a></li>
             <li><a href="index.php?target=editTk">Cập nhật tài khoản</a></li>
-            <li><a href="index.php?target=thoat">Thoát</a></li>
+            <li><a href="index.php?target=exit">Thoát</a></li>
         </ul>
     <?php } ?>
 </div>

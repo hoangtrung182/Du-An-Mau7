@@ -101,7 +101,7 @@
 									<input type="hidden" name="name" value="<?= $ten_hanghoa ?>">
 									<input type="hidden" name="img" value="<?= $hinh ?>">
 									<input type="hidden" name="price" value="<?= $don_gia ?>">
-									<input type="submit" name="addCart" value="Thêm vào giỏ hàng">
+									<input type="submit" name="addCart" value="Add to Cart" class="btn">
 								</form>
 							</div>
 						</div>

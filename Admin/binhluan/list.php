@@ -10,7 +10,7 @@
 		<th class="type">ID</th>
 		<th class="type">Nội dung</th>
 		<th class="type">IdUser</th>
-		<th class="type">IdProduct</th>
+		<th class="type">Tên SP</th>
 		<th class="type">Thời gian</th>
 		<th colspan="2" class="type">Chức năng</th>
 	</tr>
@@ -19,22 +19,29 @@
 			extract($binhluan);
 			$editBinhluan = "index.php?target=editBinhluan&id=".$ma_binh_luan;
 			$deleteBinhluan = "index.php?target=deleteBinhluan&id=".$ma_binh_luan;
+			$xemchitiet = "index.php?target=product_ct&id=" .$ma_hang_hoa;
+			$item = loadOne_item($ma_hang_hoa);
+			extract($item);
 			?>
 			<tr class="row1">
-				<td><input type="checkbox" name=""></td>
+				<td>
+					<a href="<?= $xemchitiet ?>">
+						<input type="button" value="Xem chi tiết" class="btn ">
+					</a>
+				</td>
 				<td><?= $ma_binh_luan ?></td>
 				<td><?= $noi_dung ?></td>
 				<td><?= $ma_khach_hang ?></td>
-				<td><?= $ma_hang_hoa ?></td>
+				<td><?= $ten_hanghoa ?></td>
 				<td><?= $khoang_thoi_gian ?></td>
 				<td>
 					<a href="<?= $editBinhluan ?>">
-						<input type="button" value="Edit"  class="btn_edit">
+						<input type="button" value="Edit" class="btn btn_edit">
 					</a>
 				</td>
 				<td>
 					<a href="<?= $deleteBinhluan ?>">
-						<input type="button" value="Delete" class="btn_delete">
+						<input type="button" value="Delete" class="btn btn_delete">
 					</a>
 				</td>
 			</tr>

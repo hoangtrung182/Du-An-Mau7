@@ -1,24 +1,20 @@
 <?php
-function viewCart($del)
-{ ?>
-    <?php
+
+function viewCart($del) {
     $tong = 0;
-    $i = 0; ?>
-    <?php
+    $i = 0; 
 
-    $link = "index.php?target=delete&id=$i";
+    $link = "index.php?target=deleteC&idCart=$i";
 
-    if ($del == 1) {
+    if ($del ===  1) {
         $delete_th = '<th>Thao tác</th>';
         $delete_td = '<a href="' . $link . '"><input type="button" value="Xóa" class="btn btn_delete"</a>';
     } else {
         $delete_th = "";
         $delete_td = "";
-
-
     } ?>
-    <tr class="row">
 
+    <tr class="row">
         <th class="type">Hình ảnh</th>
         <th class="type">Tên sản phẩm</th>
         <th class="type">Đơn giá</th>
@@ -27,13 +23,13 @@ function viewCart($del)
         <?= $delete_th ?>
     </tr>
 
-    <?php foreach ($_SESSION['cart'] as $cart) {
+    <?php
+    foreach ($_SESSION['mycart'] as $cart) {
         $img = $cart[2];
         $thanhtien = $cart[3] * $cart[4];
-        $tong += $thanhtien; ?>
-        <?php
+        $tong += $thanhtien;
 
-        $link = "index.php?target=delete&id=$i";
+        $link = "index.php?target=deleteC&idCart=$i";
 
         if ($del == 1) {
             $delete_th = '<th>Thao tác</th>';
@@ -41,13 +37,10 @@ function viewCart($del)
         } else {
             $delete_th = "";
             $delete_td = "";
-
-
-        } ?>
-
+        }
+         ?>
 
         <tr>
-
             <td><img src="<?= $img ?>" height="60px" width="60px" alt=""></td>
             <td>
                 <?= $cart[1] ?>
@@ -57,9 +50,10 @@ function viewCart($del)
             </td>
             <td>
                 <?= $cart[4] ?>
+                <input type="button" value="+" > 
             </td>
             <td>
-                <?= $thanhtien ?>
+                <?= $thanhtien ?> $
             </td>
 
             <td>
@@ -72,17 +66,19 @@ function viewCart($del)
     <tr>
         <td colspan=4>Tổng đơn hàng</td>
         <td>
-            <?= $tong ?>
+            <?= $tong ?> $
         </td>
 
     </tr>
 
 <?php } ?>
 
-<?php
+
+
+<?php 
+
 function tongBill()
-{ ?>
-    <?php
+{
     $tong = 0;
     $i = 0; ?>
 
@@ -191,10 +187,10 @@ function soluong_mh($id)
     return sizeof($bill);
 }
 
-
+?>
+<?php
 function bill_chi_tiet($Bill)
-{ ?>
-    <?php
+{
     $tong = 0;
     $i = 0; ?>
 
@@ -205,22 +201,17 @@ function bill_chi_tiet($Bill)
         <th class="type">Đơn giá</th>
         <th class="type">Số lượng</th>
         <th class="type">Thành tiền</th>
-
     </tr>
-
     <?php foreach ($Bill as $cart) {
         $img = $cart['image'];
         $tong += $cart['thanhtien']; ?>
-
-
         <tr>
-
             <td><img src="<?= $img ?>" height="60px" width="60px" alt=""></td>
             <td>
                 <?= $cart['name'] ?>
             </td>
             <td>
-                <?= $cart['price'] ?>
+                <?= $cart['price'] ?> 
             </td>
             <td>
                 <?= $cart['soluong'] ?>
@@ -228,21 +219,15 @@ function bill_chi_tiet($Bill)
             <td>
                 <?= $cart['thanhtien'] ?>
             </td>
-
-
         </tr>
         <?php $i += 1; ?>
     <?php } ?>
-
     <tr>
         <td colspan=4>Tổng đơn hàng</td>
         <td>
             <?= $tong ?>
         </td>
-
     </tr>
-
-<?php } ?>
-
-
+<?php
+     }
 ?>

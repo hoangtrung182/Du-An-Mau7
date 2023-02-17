@@ -9,15 +9,17 @@ include './model/khachhang.php';
 include './model/taikhoan.php';
 include './model/cart.php';
 
-if (!isset($_SESSION['cart'])) {
-
-	$_SESSION['cart'] = [];
-}
 
 $listbody = select_items_body();
 $load_nameitem = select_cate();
 $list_top10 = select_product_top10();
 $listtaikhoan = load_taikhoan();
+
+if(!isset($_SESSION['mycart'])) {
+	$_SESSION['mycart'] = [];
+} 
+
+// var_dump($_SESSION['mycart']);
 
 if (isset($_GET['target'])) {
 	$variable = $_GET['target'];
@@ -50,7 +52,7 @@ if (isset($_GET['target'])) {
 				$ten_kh = $_POST['name'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
-				//$password_mahoa = password_hash($password, PASSWORD_BCRYPT);
+				// $password_mahoa = password_hash($password, PASSWORD_BCRYPT);
 				insert_khachhang($ten_kh, $email, $password);
 				$thongbao = "Đã đăng ký thành công vui lòng đăng nhập tài khoản để sử dụng dịch vụ!";
 			}
@@ -61,7 +63,7 @@ if (isset($_GET['target'])) {
 				$gmailUser = $_POST['email'];
 				$pass = $_POST['pass'];
 				$check_user = check_khachhang($gmailUser, $pass);
-				if (is_array($check_user)) {
+				if (is_array($check_user))  {
 					$_SESSION['user'] = $check_user;
 					$thongbao = 'Đăng nhập thành công';
 					// header('location:index.php');
@@ -106,7 +108,7 @@ if (isset($_GET['target'])) {
 				$_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
 				// header('location:index.php');
-				include './view/body.php';
+				include './view/body.php';	
 			}
 			break;
 		case 'quenMk':
@@ -176,123 +178,6 @@ if (isset($_GET['target'])) {
 			$listtaikhoan = load_taikhoan();
 			include './khachhang/list.php';
 			break;
-		case 'addtoCart':
-			if (isset($_POST['addCart']) && $_POST['addCart']) {
-				$id = $_POST['id'];
-				$name = $_POST['name'];
-				$img = $_POST['img'];
-				$price = $_POST['price'];
-				$soluong = 1;
-				$thanhtien = $price * $soluong;
-				$sppAdd = array($id, $name, $img, $price, $soluong, $thanhtien);
-				array_push($_SESSION['cart'], $sppAdd);
-
-			}
-
-			include './giohang/viewCart.php';
-			break;
-		case 'delete':
-			if (isset($_GET['id'])) {
-				var_dump($_GET['id']);
-				array_slice($_SESSION['cart'], $_GET['id'], 1);
-
-			}
-
-			header("Location:index.php?target=viewcart");
-			break;
-
-		case 'viewcart':
-			include './giohang/viewCart.php';
-			break;
-		case 'deleteAllcart':
-			//if (isset($_GET['deleteAll']) && $_GET['deleteAll']) {
-			$_SESSION['cart'] = [];
-
-			//}
-			header("Location:index.php?target=viewcart");
-			break;
-		case 'bill':
-			include './giohang/bill.php';
-			break;
-		case 'Listbill':
-			if (isset($_POST['keyw']) && $_POST['keyw'] != "") {
-				$keyw = $_POST['keyw'];
-			} else {
-				$keyw = "";
-			}
-			$listBill = loadall_bill($keyw, 0);
-			include './giohang/Listbill.php';
-			break;
-		case 'deleteListBill':
-			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-				delete_bill($_GET['id']);
-				delete_bills($_GET['id']);
-				$thongbao_xoa = "Xóa thành công !!";
-			}
-
-			$listBill = loadall_bill('', $_GET['id']);
-			//include './giohang/Listbill.php';
-			header("Location:index.php?target=Listbill");
-			break;
-		case 'editBill':
-			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-				$item = loadone_bill($_GET['id']);
-			}
-			$items = $item;
-
-			//$listBill = loadall_bill('', $_GET['id']);
-			include './giohang/edit.php';
-			// include './Product/list.php';
-			break;
-		case 'editListBill':
-			if (isset($_POST['updatebill']) && $_POST['updatebill']) {
-				$id = $_POST['idbill'];
-				$name = $_POST['name'];
-				$email = $_POST['email'];
-				$diachi = $_POST['diachi'];
-				$phone = $_POST['phone'];
-				$status = $_POST['status'];
-				$date = $_POST['date'];
-				update_bill($id, $name, $email, $diachi, $phone, $status, $date);
-				$thongbao = "Cập nhật dơn hàng thành công!";
-				$listBill = loadall_bill('', $_POST['idbill']);
-			}
-			header("Location:index.php?target=Listbill");
-			break;
-		case 'mybill':
-			$list_bill = loadall_bill($_SESSION['user']['ma_khach_hang']);
-			include './giohang/mybill.php';
-			break;
-		case 'billcomfim':
-			if (isset($_POST['dathang']) && $_POST['dathang']) {
-				if (isset($_SESSION['user'])) {
-					$ma_khach_hang = $_SESSION['user']['ma_khach_hang'];
-				} else {
-					$ma_khach_hang = 0;
-				}
-				$name = $_POST['name'];
-				$diachi = $_POST['diachi'];
-				$email = $_POST['email'];
-				$phone = $_POST['phone'];
-				$ngaydat = date('h:i:sa d/m/Y');
-				$tong_bill = tongBill();
-				$pttt = $_POST['pttt'];
-
-				$id_donhang = insert_bill($ma_khach_hang, $name, $email, $diachi, $phone, $ngaydat, $tong_bill, $pttt);
-				//insert_into cart: với $_SESSION['cart'] và $id_donhang
-				foreach ($_SESSION['cart'] as $cart) {
-					insert_cart($_SESSION['user']['ma_khach_hang'], $cart[1], $cart[2], $cart[3], $cart[4], $cart[5], $id_donhang);
-
-				}
-				// xóa ssi
-				$_SESSION['cart'] = [];
-				$Bill = loadone_bill($id_donhang);
-				$billct = loadone_cart($id_donhang);
-			}
-
-			include './giohang/billcomfim.php';
-			break;
-
 		case 'addItems':
 			if (isset($_POST['addNewItem']) && $_POST['addNewItem']) {
 				$ten_loai = $_POST['nameitem'];
@@ -387,50 +272,53 @@ if (isset($_GET['target'])) {
 			break;
 
 		case 'listbl':
-			$listBinhluan = loadAll_comment();
+			$listBinhluan = select_comments();
+			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+				$item = loadOne_item($_GET['id']);
+			}
 			include './binhluan/list.php';
 			break;
-
 		case 'deleteBinhluan':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				delete_comment($_GET['id']);
 				$thongbao_xoa = "Xóa thành công!";
 			}
 
-			$listBinhluan = loadAll_comment();
+			$listBinhluan = select_comments();
 			include './binhluan/list.php';
 			break;
 		case 'editBinhluan':
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$comment = loadOne_comment($_GET['id']);
 			}
+			//$comment = $comment;
 			include './binhluan/update.php';
 			break;
 		case 'editedBinhluan':
 			if (isset($_POST['updateComment']) && $_POST['updateComment']) {
 				$id = $_POST['id'];
-				// $ma_binh_luan = $_POST['mabinhluan'];
+				$ma_binh_luan = $_POST['mabinhluan'];
 				$noi_dung = $_POST['content'];
-				// $ma_khach_hang = $_POST['idUser'];
-				// $ma_hang_hoa = $_POST['idCate'];
+				$ma_khach_hang = $_POST['idUser'];
+				$ma_hang_hoa = $_POST['idCate'];
 				$khoang_thoi_gian = $_POST['time'];
 				update_comment($id, $noi_dung, $khoang_thoi_gian);
 				$thongbao = "Cập nhật danh mục thành công!";
 			}
-			$listBinhluan = loadAll_comment();
+			$listBinhluan = select_comments();
 			include './binhluan/list.php';
 			break;
 		case 'listUsers':
 			$listUsers = load_taikhoan();
 			include './khachhang/list.php';
 			break;
-		case 'editUser':
+		case 'editUser': 
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				$user = loadOne_user($_GET['id']);
 			}
 			include './khachhang/update.php';
 			break;
-		case 'editRole':
+		case 'manageUsers': 
 			// include './taikhoan/edit.php';
 			if (isset($_POST['editUser']) && $_POST['editUser']) {
 				$id = $_POST['id'];
@@ -454,17 +342,15 @@ if (isset($_GET['target'])) {
 						$save_url = $url;
 					}
 				}
-
 				update_user($id, $name, $email, $password, $save_url, $phone, $diachi, $role);
 				// $_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
 				// header('location:index.php');
 				$listUsers = load_taikhoan();
-				include './khachhang/list.php';
+				include './khachhang/list.php';	
 			}
-
 			break;
-		case 'deleteUser':
+		case 'deleteUser': 
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				delete_user($_GET['id']);
 				$thongbao_xoa = "Xóa user thành công !!";
@@ -472,6 +358,32 @@ if (isset($_GET['target'])) {
 
 			$listUsers = load_taikhoan();
 			include './khachhang/list.php';
+			break;
+		case 'addtoCart': 
+			if(isset($_POST['addCart']) && ($_POST['addCart'])) {
+				$id = $_POST['id'];
+				$name = $_POST['name'];
+				$img = $_POST['img'];
+				$price = $_POST['price'];
+				$soluong = 1;
+				$thanhtien = $soluong * $price;
+
+				$objCart = [$id, $name, $img, $price, $soluong, $thanhtien];
+				array_push($_SESSION['mycart'], $objCart);
+			}
+			header('Location: index.php');
+			// include './giohang/viewCart.php';
+			break;
+		case 'deleteC':
+			if(isset($_GET['idCart'])) {
+				array_splice($_SESSION['mycart'], $_GET['idCart'], 1);
+			}else {
+				$_SESSION['mycart'] = [];
+			}
+			header('Location: index.php?target=viewcart');
+			break;
+		case 'viewcart': 
+			include './giohang/viewCart.php';
 			break;
 		default:
 			// $listItems = select_items();

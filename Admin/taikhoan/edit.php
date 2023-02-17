@@ -14,9 +14,9 @@
     <section class="main">
         <h2>Form chỉnh sửa tài khoản</h2>
         <?php
-        if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
-            extract($_SESSION['user']);
-        }
+            if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
+                extract($_SESSION['user']);
+            }
         ?>
         <form action="index.php?target=editTk" method="post" enctype="multipart/form-data">
 
@@ -48,10 +48,6 @@
                 <p>Địa chỉ</p>
                 <input type="text" name="diachi" class="input_second" value="<?= $dia_chi ?>"><br>
             </div>
-           <!--  <div class="text_input">
-                <p>Vai trò</p>
-                <input type="text" name="role" class="input_second" value="<?= $vai_tro ?>"><br>
-            </div> -->
             <div class="button">
                 <input type="hidden" name="id" value="<?= $ma_khach_hang ?>">
                 <input type="submit" value="Cập nhật" name="editTk" class="input_button btn">
