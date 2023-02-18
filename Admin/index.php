@@ -219,8 +219,6 @@ if (isset($_GET['target'])) {
 			}
 			$listCates = select_cate();
 			$listItems = select_items_search($keyw, $iddm);
-
-
 			include './Product/list.php';
 			break;
 		case 'deleteItem':

@@ -27,7 +27,7 @@
         <p class="login-name">Xin chào, <?= $ten_khach_hang ?> !!</p>
         <p class="profile-title">Thông tin cá nhân</p>
         <ul class="profile-list">
-            <li>Gmail:  <?= $email ?></li>
+            <!-- <li>Gmail:  <?= $email ?></li> -->
             <li>Số phone:   <?= $so_dien_thoai ?></li>
             <li>Địa chỉ: <?= $dia_chi ?></li>
             <li>

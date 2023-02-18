@@ -88,7 +88,7 @@ table {
 	margin: auto;
 }
 .table {
-	border: 0.5px solid #f3eeee;
+	border: 1px solid #f3eeee;
 	width: 100%;
 }
 
@@ -292,16 +292,13 @@ input[type="password"] {
 }
 
 /*====== Product Detail======*/
-<<<<<<< HEAD
 table {
 	border: 1px solid gray;
 }
-=======
 .product {
 	margin-top: 30px;
 }
 .product-info {}
->>>>>>> 85c363921885c857051d7f5bc6bbc0cac9900e6c
 
 .product-price {
 	color: #371ec1;
@@ -401,11 +398,6 @@ table {
 
 }
 
-
-table {
-	border: 0.5px dashed #f3eeee;
-}
-
 h2 {
 	text-align: center;
 	font-size: 30px;
@@ -419,11 +411,6 @@ h2 {
 
 .type_name {
 	width: 100px;
-}
-.rowAll {
-	min-height: 100px;
-	max-height: 200px;
-	overflow: hidden;
 }
 
 .main {
@@ -505,6 +492,28 @@ p {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+}
+
+/*==============Cart =============*/
+
+.cart-row {
+	text-align: center;
+}
+.cart_wrapperOption {
+	display: flex;
+	justify-content: space-around;
+}
+
+.cart-notify {
+	border-radius: 3px;
+    border: 0.5px solid #e3b7b7;
+    background-color: #b9bfc7;
+    width: 50%;
+    padding: 10px 5px;
+    font-size: 19px;
+    color: #f73104;
+    margin-left: 30px;
+    text-align: center;
 }
 
 /*========== COmments===========*/

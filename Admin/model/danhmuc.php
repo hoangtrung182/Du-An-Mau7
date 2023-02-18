@@ -5,8 +5,7 @@ function insert_cate($ten_loai)
 	pdo_execute($sql);
 }
 
-function select_cate()
-{
+function select_cate() {
 	$sql = "SELECT * FROM loaihang order by ma_loai";
 	$listCate = pdo_query($sql);
 	return $listCate;

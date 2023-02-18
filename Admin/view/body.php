@@ -41,19 +41,19 @@
 					<div class="mySlides fade">
 						<div class="numbertext">1 / 3</div>
 						<img src="Image/ipbanner.jpg" style="width:100%;height: 200px">
-						<div class="text">Caption Text</div>
+						<!-- <div class="text">Caption Text</div> -->
 					</div>
 
 					<div class="mySlides fade">
 						<div class="numbertext">2 / 3</div>
 						<img src="Image/iphonebanner.jpg" style="width:100%;height: 200px">
-						<div class="text">Caption Two</div>
+						<!-- <div class="text">Caption Two</div> -->
 					</div>
 
 					<div class="mySlides fade">
 						<div class="numbertext">3 / 3</div>
 						<img src="Image/laptopbanner.jpg" style="width:100%; height: 200px">
-						<div class="text">Caption Three</div>
+						<!-- <div class="text">Caption Three</div> -->
 					</div>
 					<!-- Next and previous buttons -->
 					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>

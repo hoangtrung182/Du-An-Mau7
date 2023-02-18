@@ -40,17 +40,21 @@
 	<p class="">
 		<?= $thongbao_sua ?>
 	</p>
+	<!-- Thêm mới -->
+	<button class="btn">
+		<a  href="index.php?target=addmoveItems">ADD NEW</a>
+	</button>
 
+	<!-- Table list products -->
 	<table class="table" border="1" cellspacing="0">
-		<tr class="row">
-			<th class="type"></th>
+		<tr class="row cart-row">
 			<th class="type">id</th>
 			<th class="type_name">Name</th>
 			<th class="type">Price</th>
 			<th class="type">Discount</th>
 			<th class="type">Image</th>
 			<th class="type">Date</th>
-			<th class="type_desc">Description</th>
+			<!-- <th class="type_desc">Description</th> -->
 			<th class="type">Views</th>
 			<th class="type">Mã loại</th>
 			<th class="type"></th>
@@ -63,8 +67,7 @@
 			$editItem = "index.php?target=editItem&id=" . $ma_hanghoa;
 			$deleteItem = "index.php?target=deleteItem&id=" . $ma_hanghoa;
 			?>
-			<tr class="rowAll">
-				<td><input type="checkbox" name=""></td>
+			<tr class="rowAll cart-row">
 				<td>
 					<?= $ma_hanghoa ?>
 				</td>
@@ -81,11 +84,11 @@
 				<td>
 					<?= $ngay_nhap ?>
 				</td>
-				<td>
+				<!-- <td>
 					<p>
 						<?= $mo_ta ?>
 					</p>
-				</td>
+				</td> -->
 				<td>
 					<?= $so_luot_xem ?>
 				</td>
@@ -106,10 +109,6 @@
 			</tr>
 		<?php } ?>
 	</table>
-	</table>
-	<button class="btn">
-		<a  href="index.php?target=addmoveItems">ADD NEW</a>
-	</button>
 </body>
 
 </html>

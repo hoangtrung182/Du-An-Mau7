@@ -24,24 +24,26 @@
             <p class=""><?= $thongbao_xoa ?></p>
             <p class=""><?= $thongbao_sua ?></p>
 
-            <table class="table" border="1" cellspacing="0">
+            <table class="table" cellspacing="0">
                 <?php
                      viewCart(1);
                 ?>
             </table>
-            <form action="index.php?target=bill" method="post">
-                <a href="">
-                    <input type="submit" value="Đồng ý đặt hàng" name=dathang>
-                </a>
-            </form>
+            <div class="cart_wrapperOption">
+                <form action="index.php?target=bill" method="post">
+                    <a href="" class="">
+                        <input type="submit" value="Đồng ý đặt hàng" name="dathang" class="btn_cart">
+                    </a>
+                </form>
 
-            <a href="index.php?target=deleteAllcart">
-                <input type="button" value="Xóa giỏ hàng" name=deleteAll>
-            </a>
-            <div>
-                <a href="index.php">
-                    <input type="button" value="Tiếp tục mua hàng">
+                <a href="index.php?target=deleteAllcart">
+                    <input type="button" value="Xóa giỏ hàng" name="deleteAll" class="btn_cart">
                 </a>
+                <div>
+                    <a href="index.php">
+                        <input type="button" value="Tiếp tục mua hàng" class="btn_cart">
+                    </a>
+                </div>
             </div>
         </div>
 

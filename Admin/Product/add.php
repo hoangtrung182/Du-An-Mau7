@@ -23,8 +23,8 @@
 				<?php } ?>
 			</select><br>
 			<div class="text_input">
-				<p class="input_title">Mã loại hàng</p>
-				<input type="text" name="iditem" disabled placeholder="Không thay đổi mã loại hàng"
+				<!-- <p class="input_title">Mã loại hàng</p> -->
+				<input type="hidden" name="iditem" disabled placeholder="Không thay đổi mã loại hàng"
 					class="input_second">
 			</div>
 			<div class="text_input">

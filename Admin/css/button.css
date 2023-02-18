@@ -41,3 +41,26 @@
 	margin: auto;
 	border: 1px solid #ddd;
 }
+
+
+/*======== Gio hang ==========*/
+.btn_delCart {
+	display: block;
+	text-align: center;
+}
+
+.btn_cart {
+	height: 31px;
+	width: 150px;
+	color: #fff;
+	background-color: #ff6b02;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	margin: 5px;
+}
+
+
+.btn_cart:hover {
+	opacity: .5;
+}
