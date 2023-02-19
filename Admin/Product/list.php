@@ -57,8 +57,8 @@
 			<!-- <th class="type_desc">Description</th> -->
 			<th class="type">Views</th>
 			<th class="type">Mã loại</th>
-			<th class="type"></th>
-			<th class="type"></th>
+			<th class="type" colspan="2">Thao tác</th>
+			<!-- <th class="type"></th> -->
 		</tr>
 
 		<?php

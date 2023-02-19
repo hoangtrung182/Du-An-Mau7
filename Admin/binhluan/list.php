@@ -8,11 +8,11 @@
 	<tr class="row">
 		<th class="type"></th>
 		<th class="type">ID</th>
-		<th class="type">Nội dung</th>
+		<th class="type">Nội Dung</th>
 		<th class="type">IdUser</th>
-		<th class="type">Tên SP</th>
-		<th class="type">Thời gian</th>
-		<th colspan="2" class="type">Chức năng</th>
+		<th class="type">Tên Sản Phẩm</th>
+		<th class="type">Thời Gian</th>
+		<th colspan="2" class="type">Thao Tác</th>
 	</tr>
 	<?php
 		foreach($listBinhluan as $binhluan) {
@@ -26,7 +26,7 @@
 			<tr class="row1">
 				<td>
 					<a href="<?= $xemchitiet ?>">
-						<input type="button" value="Xem chi tiết" class="btn ">
+						<input type="button" value="Xem chi tiết" class="cart-row btn">
 					</a>
 				</td>
 				<td><?= $ma_binh_luan ?></td>

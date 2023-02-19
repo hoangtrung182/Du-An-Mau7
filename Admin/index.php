@@ -66,8 +66,8 @@ if (isset($_GET['target'])) {
 				if (is_array($check_user))  {
 					$_SESSION['user'] = $check_user;
 					$thongbao = 'Đăng nhập thành công';
-					// header('location:index.php');
-					include './view/body.php';
+					header('location:index.php');
+					// include './view/header.php';
 				} else {
 					$thongbao = 'Người dùng không tồn tại';
 					include './view/body.php';

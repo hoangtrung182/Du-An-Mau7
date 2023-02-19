@@ -63,12 +63,12 @@
             </li>
         <?php } ?>
     </ul>
-    <div>
+   <!--  <div>
         <form action="index.php?target=product" method="post">
             <input type="text" name="keyw" placeholder="Nhập sản phẩm tìm kiếm..">
             <input type="submit" class="btn" value="Tìm kiếm" name=search>
         </form>
-    </div>
+    </div> -->
 </div>
 <div class="box">
     <h3 class="top-title">TOP YÊU THÍCH</h3>

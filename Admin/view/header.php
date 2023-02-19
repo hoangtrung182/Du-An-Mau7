@@ -15,17 +15,4 @@
 	<title>Dự án mẫu</title>
 </head>
 
-<body>
-	<div class="container">
-		<header class="header">Welcome to Xshop7</header>
-		<section class="navbar">
-			<ul class="navbar-menu">
-				<li><a href="index.php">Trang Chủ</a></li>
-				<li><a href="index.php?target=listCate">Danh Mục</a></li>
-				<li><a href="index.php?target=listItems">Hàng Hóa</a></li>
-				<li><a href="index.php?target=viewcart">Giỏ Hàng</a></li>
-				<li><a href="index.php?target=Listbill">Thông tin đơn hàng</a></li>
-				<li><a href="index.php?target=listbl">Bình Luận</a></li>
-				<li><a href="index.php?target=addtk">Thống Kê</a></li>
-			</ul>
-		</section>
+	

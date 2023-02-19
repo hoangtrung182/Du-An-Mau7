@@ -27,7 +27,7 @@
     <h2>Danh sách tài khoản</h2>
     <table border="1" cellspacing="0">
         <tr class="row">
-            <th class="type"></th>
+            <!-- <th class="type"></th> -->
             <th class="type">Mã khách hàng</th>
             <th class="type">Tên đăng nhập</th>
             <th class="type">Email</th>
@@ -45,7 +45,7 @@
             $deleteUser = "index.php?target=deleteUser&id=" . $ma_khach_hang;
             ?>
             <tr class="row1">
-                <td><input type="checkbox" name=""></td>
+                <!-- <td><input type="checkbox" name=""></td> -->
                 <td>
                     <?= $ma_khach_hang ?>
                 </td>
