@@ -7,7 +7,7 @@ function selectList_comments($id)
 }
 function select_comments()
 {
-    $sql = "SELECT * FROM binhluan order by ma_binh_luan";
+    $sql = "SELECT * FROM binhluan order by khoang_thoi_gian";
     $listComment = pdo_query($sql);
     return $listComment;
 }

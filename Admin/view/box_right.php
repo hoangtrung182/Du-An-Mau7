@@ -39,10 +39,13 @@
             <p>---------------</p>
         </ul>
         <ul class="login-menu">
-            <li><a href="index.php?target=quenMk">Quên mật khẩu</a></li>
+            <li><a href="index.php?target=doimatkhau">Đổi mật khẩu</a></li>
             <?php if ($vai_tro == 1) { ?>
                 <li><a href="index.php?target=listUsers">Đăng nhập Admin</a></li>
-
+                <li><a href="index.php?target=listCate">Quản lí Danh Mục</a></li>
+                <li><a href="index.php?target=listItems">Quản lí Hàng Hóa</a></li>
+                <li><a href="index.php?target=listbl">Quản lí Bình Luận</a></li>
+                <li><a href="index.php?target=addtk">Quản lí Thống Kê</a></li>             
 
             <?php } ?>
             <li><a href="index.php?target=mybill">Đơn hàng của tôi</a></li>

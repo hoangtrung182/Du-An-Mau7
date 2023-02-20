@@ -17,13 +17,11 @@
                 <div class="title_row">ĐƠN HÀNG CỦA TÔI</div>
                 <table>
                     <tr class="row">
-
                         <th class="type">Mã đơn hàng</th>
                         <th class="type">Ngày đặt</th>
                         <th class="type">Số lượng mặt hàng</th>
                         <th class="type">Tổng giá trị đơn hàng</th>
                         <th class="type">Tình trạng đơn hàng</th>
-
                     </tr>
                     <?php
                     if (is_array($list_bill)) {
@@ -32,19 +30,17 @@
                             $status_bill = get_bill($bill['status']);
                             $count_mh = soluong_mh($idbill); ?>
                             <tr>
-
-
                                 <td>
-                                    <?= $bill['idbill'] ?>
+                                    <?= $idbill ?>
                                 </td>
                                 <td>
-                                    <?= $bill['ngay_nhap'] ?>
+                                    <?= $ngay_nhap ?>
                                 </td>
                                 <td>
                                     <?= $count_mh ?>
                                 </td>
                                 <td>
-                                    <?= $bill['tong_bill'] ?>
+                                    <?= $tong_bill ?>
                                 </td>
 
                                 <td>
@@ -53,22 +49,12 @@
                             </tr>
                         <?php } ?>
                     <?php } ?>
-
-
                 </table>
-
-
             </div>
-
-
         </div>
-
-
         <div class="sidebar">
             <?php include './view/box_right.php'; ?>
         </div>
-
     </div>
 </body>
-
 </html>

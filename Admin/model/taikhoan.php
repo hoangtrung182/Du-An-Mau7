@@ -12,11 +12,17 @@ function check_khachhang($email, $password) {
     return $item;
 }
 
-function update_Tk($id, $ten_kh, $email, $pass, $image, $phone, $diachi)
+function update_Tk($id, $ten_kh, $email, $image, $phone, $diachi)
 {
-    $sql = "UPDATE khachhang SET ten_khach_hang ='$ten_kh', email = '$email', password = '$pass',
-		 avatar = '$image',so_dien_thoai = '$phone', dia_chi = '$diachi'  
+    $sql = "UPDATE khachhang SET ten_khach_hang ='$ten_kh', email = '$email',
+		 avatar = '$image', so_dien_thoai = '$phone', dia_chi = '$diachi'  
 		 WHERE ma_khach_hang ='$id'";
+    pdo_execute($sql);
+}
+
+function update_mk($id, $pass) {
+    $sql = "UPDATE khachhang SET  password = '$pass' 
+         WHERE ma_khach_hang ='$id'";
     pdo_execute($sql);
 }
 

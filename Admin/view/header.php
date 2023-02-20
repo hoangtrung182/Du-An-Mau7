@@ -14,5 +14,15 @@
 		rel="stylesheet">
 	<title>Dự án mẫu</title>
 </head>
-
+<body>
+	<div class="container">
+		<header class="header">Welcome to Xshop7</header>
+		<section class="navbar">
+			<ul class="navbar-menu">
+				<li><a href="index.php">Trang Chủ</a></li>
+				<li><a href="index.php?target=viewcart">Giỏ Hàng</a></li>
+				<li><a href="index.php?target=Listbill">Thông tin đơn hàng</a></li>
+			</ul>
+		</section>
+	</div>
 	

@@ -25,12 +25,13 @@
 				<td><?= $ten_loai ?></td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit"  class="btn btn_edit">
+						<input type="button" value="Update"  class="btn btn_edit">
 					</a>
 				</td> 
 				<td>
 					<a href="<?= $deleteItem ?>">
-						<input type="button" value="Delete" class="btn btn_delete">
+						<input type="button" value="Delete" class="btn btn_delete"
+						 onclick="return confirm('Bạn có chắc chắn muốn xóa không!')">
 					</a>
 				</td>
 			</tr>

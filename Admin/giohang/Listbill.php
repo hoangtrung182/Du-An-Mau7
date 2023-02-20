@@ -79,7 +79,7 @@
 
                 <td>
                     <a href="<?= $editBill ?>">
-                        <input type="button" value="Edit" class="btn btn_edit">
+                        <input type="button" value="Update" class="btn btn_edit">
                     </a>
                 </td>
                 <td>

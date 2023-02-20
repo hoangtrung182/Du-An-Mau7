@@ -13,8 +13,8 @@
 			   value="<?= $ten_loai ?>">
 		<div class="button">
 			<input type="hidden" name="id" value="<?= $ma_loai ?>"> 
-			<input type="submit" value="Edit" name="updateCate" class="input_submit btn">
-			<input type="reset" value="Retype" class="input_reset btn">
+			<input type="submit" value="Save" name="updateCate" class="input_submit btn">
+			<input type="reset" value="Reset" class="input_reset btn">
 			<a href="index.php?target=listCate"><input type="button" value="List Item" class="btn"></a>
 		</div>
 		<?= isset($thongbao) ? $thongbao : '' ?>

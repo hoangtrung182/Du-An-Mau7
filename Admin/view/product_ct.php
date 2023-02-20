@@ -35,6 +35,15 @@
 						<?= $don_gia ?> $
 					</span>
 				</div>
+				<div>
+					<form action="index.php?target=addtoCart" method="post">
+						<input type="hidden" name="id" value="<?= $ma_hanghoa ?>">
+						<input type="hidden" name="name" value="<?= $ten_hanghoa ?>">
+						<input type="hidden" name="img" value="<?= $hinh ?>">
+						<input type="hidden" name="price" value="<?= $don_gia ?>">
+						<input type="submit" name="addCart" value="Add to Cart" class="btn">
+					</form>
+				</div>
 				<div class="product-desc">
 					<p class="">
 						<?= $mo_ta ?>

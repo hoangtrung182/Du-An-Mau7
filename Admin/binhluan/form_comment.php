@@ -51,9 +51,8 @@ $list_bl = selectList_comments($idpro);
         <div>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <input type="text" name="idpro" hidden value="<?= $idpro ?>">
-                <textarea class="comment-area" cols="100" rows="4" placeholder="..comment..." name="mess"></textarea>
+                <textarea class="comment-area" cols="100" rows="4" placeholder="Hãy bình luận gì đó..." name="mess"></textarea>
                 <input type="submit" class="btn" value="Gửi bình luận" name="btnComment">
-
             </form>
         </div>
         <?php
@@ -61,7 +60,7 @@ $list_bl = selectList_comments($idpro);
             $iddrop = $_POST['idpro'];
             $noi_dung = $_POST['mess'];
             $ma_khach_hang = $_SESSION['user']['ma_khach_hang'];
-            $khoang_thoi_gian = date('h:i:sa d/m/Y');
+            $khoang_thoi_gian = date('d/m/Y');
 
             insert_comments($noi_dung, $ma_khach_hang, $idpro, $khoang_thoi_gian);
             header("Location: " . $_SERVER['HTTP_REFERER']);

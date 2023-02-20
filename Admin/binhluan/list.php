@@ -36,7 +36,7 @@
 				<td><?= $khoang_thoi_gian ?></td>
 				<td>
 					<a href="<?= $editBinhluan ?>">
-						<input type="button" value="Edit" class="btn btn_edit">
+						<input type="button" value="Update" class="btn btn_edit">
 					</a>
 				</td>
 				<td>

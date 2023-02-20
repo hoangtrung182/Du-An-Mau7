@@ -80,12 +80,12 @@ if (isset($_GET['target'])) {
 			include './taikhoan/edit.php';
 			break;
 		case 'editTk':
-			// include './taikhoan/edit.php';
+			include './taikhoan/edit.php';
 			if (isset($_POST['editTk']) && $_POST['editTk']) {
 				$id = $_POST['id'];
 				$name = $_POST['name'];
 				$email = $_POST['email'];
-				$password = $_POST['password'];
+				// $password = $_POST['password'];
 				$phone = $_POST['phone'];
 				$diachi = $_POST['diachi'];
 				// $role = $_POST['role'];
@@ -104,12 +104,31 @@ if (isset($_GET['target'])) {
 					}
 				}
 
-				update_Tk($id, $name, $email, $password, $save_url, $phone, $diachi);
-				$_SESSION['user'] = check_khachhang($email, $password);
+				update_Tk($id, $name, $email, $save_url, $phone, $diachi);	//bỏ password
+				// $_SESSION['user'] = check_khachhang($email, $password);
 				$thongbao = "Chỉnh sửa tài khoản thành công!";
-				// header('location:index.php');
-				include './view/body.php';	
+				header('location:index.php');
+				// include './view/body.php';	
 			}
+			break;
+		case 'doimatkhau' :
+			if(isset($_POST['doimatkhau']) && $_POST['doimatkhau']) {
+				$id = $_POST['id'];
+				$email = $_POST['email'];
+				$oldpass = $_POST['oldpass'];
+				$newpass = $_POST['newpass'];
+				if($oldpass == $_SESSION['user']['password']) {
+					$thongbaodung = 'Nhập đúng mật khẩu cũ';
+					update_mk($id, $newpass);
+					$_SESSION['user'] = check_khachhang($email, $newpass);
+					$thongbao = "Đổi mật khẩu thành công!";
+					header('location:index.php?target=exit');
+				}else {
+					$thongbaodung = "Nhập sai";
+				}
+				
+			}
+			include './taikhoan/doimatkhau.php';
 			break;
 		case 'quenMk':
 			if (isset($_POST['quenMk']) && $_POST['quenMk']) {
@@ -382,6 +401,57 @@ if (isset($_GET['target'])) {
 			break;
 		case 'viewcart': 
 			include './giohang/viewCart.php';
+			break;
+		case 'bill': 
+			include './giohang/bill.php';
+			break;
+		case 'billcomfim':
+				if (isset($_POST['dathang']) && $_POST['dathang']) {
+					if (isset($_SESSION['user'])) {
+						$ma_khach_hang = $_SESSION['user']['ma_khach_hang'];
+					} else {
+						$ma_khach_hang = 0;
+				}
+				$name = $_POST['name'];
+				$diachi = $_POST['diachi'];
+				$email = $_POST['email'];
+				$phone = $_POST['phone'];
+				$ngaydat = date('h:i:s d/m/Y');
+				$tong_bill = tongBill();
+				$pttt = $_POST['pttt'];
+
+				$id_donhang = insert_bill($ma_khach_hang, $name, $email, $diachi, $phone, $ngaydat, $tong_bill, $pttt);
+				//insert_into cart: với $_SESSION['cart'] và $id_donhang
+				foreach ($_SESSION['mycart'] as $cart) {
+					insert_cart($_SESSION['user']['ma_khach_hang'], $cart[1], $cart[2], $cart[3], $cart[4], $cart[5], $id_donhang);
+
+				}
+				// xóa ssi
+				$_SESSION['mycart'] = [];
+				$Bill = loadone_bill($id_donhang);
+				$billct = loadone_cart($id_donhang);
+			}
+
+			include './giohang/billcomfim.php';
+			break;
+		case 'deleteAllcart' :
+			$_SESSION['mycart'] = [];
+			header('Location:index.php?target=viewcart');
+			break;
+		case 'Listbill':
+			if (isset($_POST['keyw']) && $_POST['keyw'] != "") {
+				$keyw = $_POST['keyw'];
+			} else {
+				$keyw = "";
+			}
+			$listBill = loadall_bill($keyw, 0);
+			include './giohang/Listbill.php';
+			break;
+		case 'mybill':
+			$list_bill = loadall_bill($_SESSION['user']['ma_khach_hang']);
+			// var_dump($_SESSION['user']['ma_khach_hang']);
+			// die;
+			include './giohang/mybill.php';
 			break;
 		default:
 			// $listItems = select_items();

@@ -52,7 +52,7 @@
 
                         <?= isset($thongbao) ? $thongbao : '' ?>
                     </table>
-                    <input type="submit" value="Đồng ý đặt hàng" name=dathang>
+                    <input type="submit" value="Xác nhận" class="btn" name=dathang>
                 </div>
 
 

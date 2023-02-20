@@ -42,20 +42,20 @@
 	</p>
 	<!-- Thêm mới -->
 	<button class="btn">
-		<a  href="index.php?target=addmoveItems">ADD NEW</a>
+		<a  href="index.php?target=addmoveItems">Thêm mới</a>
 	</button>
 
 	<!-- Table list products -->
 	<table class="table" border="1" cellspacing="0">
 		<tr class="row cart-row">
-			<th class="type">id</th>
-			<th class="type_name">Name</th>
-			<th class="type">Price</th>
-			<th class="type">Discount</th>
-			<th class="type">Image</th>
-			<th class="type">Date</th>
+			<th class="type">ID</th>
+			<th class="type_name">Tên Sản Phẩm</th>
+			<th class="type">Giá</th>
+			<th class="type">Giảm Giá</th>
+			<th class="type">Hình ảnh</th>
+			<th class="type">Ngày nhập</th>
 			<!-- <th class="type_desc">Description</th> -->
-			<th class="type">Views</th>
+			<th class="type">Lượt xem</th>
 			<th class="type">Mã loại</th>
 			<th class="type" colspan="2">Thao tác</th>
 			<!-- <th class="type"></th> -->
@@ -97,7 +97,7 @@
 				</td>
 				<td>
 					<a href="<?= $editItem ?>">
-						<input type="button" value="Edit" class="btn btn_edit">
+						<input type="button" value="Update" class="btn btn_edit">
 					</a>
 				</td>
 				<td>

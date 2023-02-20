@@ -85,7 +85,7 @@ function tongBill()
     $tong = 0;
     $i = 0; ?>
 
-    <?php foreach ($_SESSION['cart'] as $cart) {
+    <?php foreach ($_SESSION['mycart'] as $cart) {
         $img = $cart[2];
         $thanhtien = $cart[3] * $cart[4];
         $tong += $thanhtien; ?>
@@ -104,10 +104,11 @@ function insert_bill($id, $name, $email, $diachi, $phone, $date, $tongbill, $ptt
 }
 
 function insert_cart($ma_khach_hang, $name, $img, $price, $soluong, $thanhtien, $idbill) {
-    $sql = "INSERT INTO cart(ma_khach_hang,name, image, price, soluong,thanhtien,idbill)
+    $sql = "INSERT INTO cart(ma_khach_hang, name, image, price, soluong,thanhtien,idbill)
 		 		VALUES ('$ma_khach_hang','$name','$img','$price','$soluong','$thanhtien','$idbill')";
     return pdo_execute($sql);
 }
+
 function loadone_bill($id) {
     $sql = "SELECT * FROM bill WHERE idbill =" . $id;
     $bill = pdo_query_one($sql);
@@ -127,7 +128,7 @@ function loadall_bill($keyw = " ", $id = 0) {
     if ($keyw != " ") {
         $sql .= " AND idbill LIKE '%" . $keyw . "%'";
     }
-    $sql .= " ORDER BY ma_khach_hang desc";
+    $sql .= " ORDER BY idbill asc";
     $listbill = pdo_query($sql);
     return $listbill;
 }

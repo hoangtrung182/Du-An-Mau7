@@ -63,7 +63,7 @@
 
 			<div class="button">
 				<input type="submit" value="ADD" name="addNewItem" class="input_button btn">
-				<input type="reset" value="Retype" class="input_button btn">
+				<input type="reset" value="Reset" class="input_button btn">
 				<a href="index.php?target=listItems"><input type="button" value="List Product" class="btn"></a>
 
 			</div>
