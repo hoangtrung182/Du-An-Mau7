@@ -25,7 +25,7 @@ html {
 }
 
 .navbar {
-	background-color: #000;
+	background-color: #e53333;
 }
 
 .navbar-menu {
@@ -43,7 +43,9 @@ html {
 	padding: 10px 5px;
 	color: #fff;
 }
-
+.navbar-menu li a:hover {
+	color: #000;
+}
 
 .input_second {
 	height: 30px;
@@ -183,9 +185,9 @@ table {
 }
 
 .main-info {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 	height: 100px;
-
+	/*margin: 15px 0;*/
 }
 
 .body_main {
@@ -347,6 +349,7 @@ table {
 	padding: 5px 10px;
 	margin-bottom: 10px;
 	border-radius: 4px;
+	/*text-align: center;*/
 }
 
 
@@ -515,6 +518,9 @@ p {
     margin-left: 30px;
     text-align: center;
 }
+.form__addtoCart {
+	margin-bottom: 15px;
+}
 
 /*========== COmments===========*/
 
@@ -582,7 +588,7 @@ p {
 	font-weight: bold;
 }
 .profile-list {
-	padding-left: 15px;
+	/*padding-left: 15px;*/
 	list-style-type: circle;
 }
 
@@ -597,4 +603,8 @@ p {
 	height: 50px;
 	width: 100px;
 	overflow: auto;
+}
+
+.form-input__search {
+	margin-bottom: 15px;
 }

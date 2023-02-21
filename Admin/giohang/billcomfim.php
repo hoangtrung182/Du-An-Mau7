@@ -29,16 +29,10 @@
                 <?= $Bill['ngay_nhap'] ?><br>
                 Địa chỉ:
                 <?= $Bill['dia_chi'] ?><br>
-
-
             </div>
-
             <div class="row_product">
                 <div class="title_row">THÔNG TIN ĐẶT HÀNG</div>
-
-
                 <table>
-
                     <tr class="text_input">
                         <td class="input_title">Người đặt hàng</td>
                         <td>
@@ -56,16 +50,13 @@
                         <td>
                             <?= $Bill['email'] ?><br>
                         </td>
-
                     </tr>
                     <tr class="text_input">
                         <td>Điện thoại</td>
                         <td>
                             <?= $Bill['phone'] ?><br>
                         </td>
-
                     </tr>
-
                     <?= isset($thongbao) ? $thongbao : '' ?>
                 </table>
             </div>
@@ -79,25 +70,16 @@
                         <td><input type="radio" name="pttt" id="">Thanh toán online</td>
                     </tr>
                 </table>
-
-
             </div>
-
             <div class="row_product">
                 <div class="title_row">THÔNG TIN GIỎ HÀNG</div>
                 <table border="1" cellspacing="0">
-
                     <?php
                     bill_chi_tiet($billct);
                     ?>
-
                 </table>
-
             </div>
-
         </div>
-
-
         <div class="sidebar">
             <?php include './view/box_right.php'; ?>
         </div>

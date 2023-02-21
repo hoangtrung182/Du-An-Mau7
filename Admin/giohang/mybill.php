@@ -24,6 +24,7 @@
                         <th class="type">Tình trạng đơn hàng</th>
                     </tr>
                     <?php
+                    // var_dump($_SESSION['user']);
                     if (is_array($list_bill)) {
                         foreach ($list_bill as $bill) {
                             extract($bill);

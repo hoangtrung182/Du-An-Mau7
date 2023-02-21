@@ -448,10 +448,13 @@ if (isset($_GET['target'])) {
 			include './giohang/Listbill.php';
 			break;
 		case 'mybill':
-			$list_bill = loadall_bill($_SESSION['user']['ma_khach_hang']);
+			$list_bill = loadall_bill('',$_SESSION['user']['ma_khach_hang']);
 			// var_dump($_SESSION['user']['ma_khach_hang']);
 			// die;
 			include './giohang/mybill.php';
+			break;
+		case 'thongtin':
+			include './view/about.php';
 			break;
 		default:
 			// $listItems = select_items();

@@ -21,7 +21,8 @@
 			<ul class="navbar-menu">
 				<li><a href="index.php">Trang Chủ</a></li>
 				<li><a href="index.php?target=viewcart">Giỏ Hàng</a></li>
-				<li><a href="index.php?target=Listbill">Thông tin đơn hàng</a></li>
+           		<li><a href="index.php?target=mybill">Đơn hàng của tôi</a></li>
+           		<li><a href="index.php?target=thongtin">Thông tin</a></li>
 			</ul>
 		</section>
 	</div>

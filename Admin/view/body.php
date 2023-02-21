@@ -18,19 +18,19 @@
 				  <!-- Full-width images with number and caption text -->
 				  <div class="mySlides fade">
 				    <div class="numbertext">1 / 3</div>
-				    <img src="Image/ipbanner.jpg" style="width:100%;height: 200px">
+				    <img src="Image/ipbanner.jpg" style="width:100%;height: 300px">
 				    <!-- <div class="text"></div> -->
 				  </div>
 
 				  <div class="mySlides fade">
 				    <div class="numbertext">2 / 3</div>
-				    <img src="Image/iphonebanner.jpg" style="width:100%;height: 200px">
+				    <img src="Image/iphonebanner.jpg" style="width:100%;height: 300px">
 				    <!-- <div class="text">Caption Two</div> -->
 				  </div>
 
 				  <div class="mySlides fade">
 				    <div class="numbertext">3 / 3</div>
-				    <img src="Image/laptopbanner.jpg" style="width:100%; height: 200px">
+				    <img src="Image/laptopbanner.jpg" style="width:100%; height: 300px">
 				    <!-- <div class="text">Caption Three</div> -->
 				  </div>
 				  <!-- Next and previous buttons -->
@@ -39,19 +39,19 @@
 					<!-- Full-width images with number and caption text -->
 					<div class="mySlides fade">
 						<div class="numbertext">1 / 3</div>
-						<img src="Image/ipbanner.jpg" style="width:100%;height: 200px">
+						<img src="Image/ipbanner.jpg" style="width:100%;height: 300px">
 						<!-- <div class="text">Caption Text</div> -->
 					</div>
 
 					<div class="mySlides fade">
 						<div class="numbertext">2 / 3</div>
-						<img src="Image/iphonebanner.jpg" style="width:100%;height: 200px">
+						<img src="Image/iphonebanner.jpg" style="width:100%;height: 300px">
 						<!-- <div class="text">Caption Two</div> -->
 					</div>
 
 					<div class="mySlides fade">
 						<div class="numbertext">3 / 3</div>
-						<img src="Image/laptopbanner.jpg" style="width:100%; height: 200px">
+						<img src="Image/laptopbanner.jpg" style="width:100%; height: 300px">
 						<!-- <div class="text">Caption Three</div> -->
 					</div>
 					<!-- Next and previous buttons -->
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="product">
-				<div>
+				<div class="form-input__search">
 			        <form action="index.php?target=product" method="post">
 			            <input type="text" name="keyw" placeholder="Nhập sản phẩm tìm kiếm..">
 			            <input type="submit" class="btn" value="Tìm kiếm" name=search>
@@ -100,7 +100,7 @@
 									<?= $don_gia ?> $
 								</span>
 							</div>
-							<div>
+							<div class="form__addtoCart">
 								<form action="index.php?target=addtoCart" method="post">
 									<input type="hidden" name="id" value="<?= $ma_hanghoa ?>">
 									<input type="hidden" name="name" value="<?= $ten_hanghoa ?>">

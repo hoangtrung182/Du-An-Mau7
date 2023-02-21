@@ -119,7 +119,7 @@ function loadone_cart($id) {
     $bill = pdo_query($sql);
     return $bill;
 }
-function loadall_bill($keyw = " ", $id = 0) {
+function loadall_bill($keyw = "", $id = 0) {
     $sql = "SELECT * FROM bill WHERE 1";
     if (isset($id) && $id > 0) {
         $sql .= " AND ma_khach_hang =" . $id;

@@ -47,9 +47,7 @@
                         <tr class="text_input">
                             <td>Điện thoại</td>
                             <td> <input type="text" name="phone" class="input_second" value="<?= $phone ?>"><br></td>
-
                         </tr>
-
                         <?= isset($thongbao) ? $thongbao : '' ?>
                     </table>
                     <input type="submit" value="Xác nhận" class="btn" name=dathang>
@@ -65,29 +63,16 @@
                     <label for="pttt">Chuyển khoản ngân hàng</label>
                     <input type="radio" name="pttt" id="">
                     <label for="pttt">Thanh toán online</label>
-
             </form>
-
-
         </div>
 
         <div class="row_product">
             <div class="title_row">THÔNG TIN GIỎ HÀNG</div>
             <table border="1" cellspacing="0">
-
                 <?php viewCart(0); ?>
             </table>
-
-
-
-
         </div>
-
-
-
     </div>
-
-
     <div class="sidebar">
         <?php include './view/box_right.php'; ?>
     </div>
