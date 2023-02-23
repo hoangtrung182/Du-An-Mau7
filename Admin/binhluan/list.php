@@ -1,9 +1,7 @@
 <p class=""><?= isset($thongbao) ? $thongbao : '' ?></p>
 <p class=""><?= isset($thongbao_xoa) ? $thongbao_xoa : '' ?></p>
 
-<div>
-    <h1>Danh sách bình luận</h1>
-</div>
+<h2>Danh sách bình luận</h2>
 <table border="" cellspacing="0">
 	<tr class="row">
 		<th class="type"></th>
@@ -34,11 +32,11 @@
 				<td><?= $ma_khach_hang ?></td>
 				<td><?= $ten_hanghoa ?></td>
 				<td><?= $khoang_thoi_gian ?></td>
-				<td>
+				<!-- <td>
 					<a href="<?= $editBinhluan ?>">
 						<input type="button" value="Update" class="btn btn_edit">
 					</a>
-				</td>
+				</td> -->
 				<td>
 					<a href="<?= $deleteBinhluan ?>">
 						<input type="button" value="Delete" class="btn btn_delete">

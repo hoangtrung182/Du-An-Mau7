@@ -8,6 +8,7 @@ include './model/binhluan.php';
 include './model/khachhang.php';
 include './model/taikhoan.php';
 include './model/cart.php';
+include './model/thongke.php';
 
 
 $listbody = select_items_body();
@@ -455,6 +456,14 @@ if (isset($_GET['target'])) {
 			break;
 		case 'thongtin':
 			include './view/about.php';
+			break;
+		case 'addtk':
+			$listthongke = loadall_thongke();
+			include './thongke/list.php';
+			break;
+		case 'bieudo':
+			$listthongke = loadall_thongke();
+			include './thongke/chart.php';
 			break;
 		default:
 			// $listItems = select_items();

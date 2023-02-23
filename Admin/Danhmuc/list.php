@@ -5,6 +5,7 @@
 <p class=""><?= $thongbao ?></p>
 <p class=""><?= $thongbao_delete ?></p>
 
+<h2>Danh sách loại hàng</h2>
 <table border="1" cellspacing="0">
 	<tr class="row">
 		<!-- <th class="type"></th> -->

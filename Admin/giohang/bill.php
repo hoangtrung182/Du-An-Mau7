@@ -30,7 +30,6 @@
                     }
                     ?>
                     <table>
-
                         <tr class="text_input">
                             <td class="input_title">Người đặt hàng</td>
                             <td><input type="text" name="name" class="input_second" value="<?= $name ?>"></td>
