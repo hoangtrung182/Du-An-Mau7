@@ -1,5 +1,5 @@
 	<footer class="footer">
-		<p>Team 7 together</p>
+		<p>Sản phẩm của Nhóm 7</p>
 	</footer>
 	</div>
 </body>

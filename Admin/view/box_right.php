@@ -51,7 +51,7 @@
             <p>------------</p>
             <li><a href="index.php?target=doimatkhau">Đổi mật khẩu</a></li>
             <li><a href="index.php?target=editTk">Cập nhật tài khoản</a></li>
-            <li><a href="index.php?target=exit">Thoát</a></li>
+            <li><a href="index.php?target=exit">Đăng xuất</a></li>
         </ul>
     <?php } ?>
 </div>

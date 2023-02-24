@@ -51,13 +51,13 @@
         </tr>';
         }
         ?>
-
-
-
     </table>
-    <div class="mb10">
-        <a href="index.php?target=bieudo"><input type="button" value="Xem biểu đồ"></a>
-    </div>
+   <!--  <div class="mb10 btn btn-edit">
+        <a href="index.php?target=bieudo" class="btn btn-edit"><input type="button" value="Xem biểu đồ"></a>
+    </div> -->
+    <button class="btn">
+        <a  href="index.php?target=bieudo">Xem biểu đồ</a>
+    </button>
 </body>
 
 </html>
