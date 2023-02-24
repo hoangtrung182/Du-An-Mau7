@@ -27,9 +27,9 @@
                 $i = 1;
                 foreach ($listthongke as $thongke) {
                     extract($thongke);
-                    if ($i == $tongdm) $daphay = "";
-                    else $dayphay = ",";
-                    echo "['" . $thongke['ten_loai'] . "', " . $thongke['countsp'] . "]" . $dayphay;
+                    if ($i == $tongdm) $dauphay = "";
+                    else $dauphay = ",";
+                    echo "['" . $thongke['ten_loai'] . "', " . $thongke['countsp'] . "]" . $dauphay;
                     $i += 1;
                 }
                 ?>
